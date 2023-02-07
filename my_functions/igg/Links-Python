@@ -1,0 +1,137 @@
+PYTHON
+
+USAR: ls -alt for look up files by date actual to old... or ls -alt -r for inverse
+
+REVISAR EN IGG
+	VAR-tipos-v1.py    VAR-alcance-02-igg.py   variblesExamples-py
+	CLASS-examples.py   
+
+REVISAR	EN ZIGGY 
+	Clase.py    clases-herencia-override.py   funciones-print-archivo.py    test.py
+	tipos-variables.py     prueba_modulos_paquetes.py 
+
+Tutorials
+	https://www.programiz.com/python-programming/methods/built-in/isinstance
+	https://www.tutorialspoint.com/python
+
+Links programing with Python
+	https://developers.google.com/edu/python/introduction
+	https://www.quora.com/How-to-write-python-scripts-on-linux
+	https://swcarpentry.github.io/python-novice-inflammation/10-cmdline/
+	https://www.tecmint.com/learn-python-programming-and-scripting-in-linux/
+	https://www.cyberciti.biz/faq/python-execute-unix-linux-command-examples/
+
+What does if __name__ == “__main__”: do?	
+	https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+	https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/
+
+
+LOGGING
+	why use logging instead of print?
+		https://stackoverflow.com/questions/6918493/in-python-why-use-logging-instead-of-print
+	https://www.tutorialspoint.com/logging-in-python
+	https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm
+	http://blog.tplus1.com/blog/2007/09/28/the-python-logging-module-is-much-better-than-print-statements/
+	https://www.loggly.com/blog/4-reasons-a-python-logging-library-is-much-better-than-putting-print-statements-everywhere/
+	
+THREADING 
+	https://www.tutorialspoint.com/python/python_multithreading.htm
+	https://www.tutorialspoint.com/python3/python_multithreading.html
+	https://en.wikibooks.org/wiki/Python_Programming/Threading
+	
+	https://www.tutorialspoint.com/concurrency_in_python/concurrency_in_python_pool_of_processes.htm
+	https://www.tutorialspoint.com/concurrency_in_python/concurrency_in_python_pool_of_threads.htm
+	https://www.genbeta.com/desarrollo/multiprocesamiento-en-python-threads-a-fondo-introduccion
+
+REQUESTS
+	https://www.tutorialspoint.com/python_network_programming/python_http_requests.htm
+	https://www.tutorialspoint.com/requests/requests_handling_sessions.htm
+
+MULTIPROCESSING
+	https://www.geeksforgeeks.org/multiprocessing-python-set-1/
+
+
+Packaging
+	https://packaging.python.org/tutorials/installing-packages
+	https://www.w3schools.com/python/python_pip.asp
+
+File Objects
+	https://docs.python.org/2.4/lib/bltin-file-objects.html
+	https://www.geeksforgeeks.org/file-objects-python/
+
+Ide
+	https://www.onlinegdb.com/
+	https://www.ubuntupit.com/best-open-source-python-ide-for-linux/
+	https://www.tecmint.com/best-python-ides-for-linux-programmers/
+	https://wiki.python.org/moin/IntegratedDevelopmentEnvironments 
+	https://maslinux.es/5-mejores-ides-libres-para-python/
+	https://www.ubuntupit.com/spyder-the-community-developed-scientific-python-ide-for-data-science/
+
+Local & Global
+        https://pythonspot.com/global-local-variables/
+        https://pythonspot.com/global-local-variables/
+
+Listing methods of a class
+        https://stackoverflow.com/questions/34439/finding-what-methods-a-python-object-has
+		object_methods = [method_name for method_name in dir("casa") if callable(getattr("casa", method_name))]
+
+Dive into Python
+        https://web.archive.org/web/20180901124519/http://www.diveintopython.net/power_of_introspection/index.html
+
+Everything in Python is an obj
+        https://web.archive.org/web/20180830071435/http://www.diveintopython.net/getting_to_know_python/everything_is_an_object.html
+	
+Built in
+        https://docs.python.org/3/library/functions.html
+
+DataStruct
+        https://docs.python.org/3/tutorial/datastructures.html
+
+Classes
+        https://docs.python.org/3/tutorial/classes.html
+
+Memory allocation
+        https://medium.com/datadriveninvestor/how-does-memory-allocation-work-in-python-and-other-languages-d2d8a9398543
+        https://www.educba.com/c-vs-python/
+        https://medium.com/@tyastropheus/tricky-python-i-memory-management-for-mutable-immutable-objects-21507d1e5b95
+
+
+
+FILES BY DATE  (ls -alt -r
+
+
+     42 nov 21 18:56 helloworld.py
+    179 nov 21 19:23 ejemploif.py
+     19 nov 26 18:40 00-base.py
+   1213 nov 26 19:54 tipos-variables.py
+    531 dic  6 19:01 alcance-02.py
+    137 dic 20 16:06 operadores.py
+    185 dic 24 13:30 operadores-ternarios.py
+    887 dic 24 13:37 operadores-bit.py
+    899 dic 24 14:14 while.py
+    772 dic 30 13:48 funciones.py
+    271 ene 17 16:40 funciones-casting.py
+     89 feb  7 15:56 prueba_modulos_paquetes.py
+    632 feb 27 19:53 hilos-02-sencillos.py
+    947 feb 27 20:18 hilos-03-04-multiples.py
+    680 mar 10 16:45 hilos-05-pool.py
+   1259 mar 10 17:23 hilos-07-carerra.py
+    368 abr  8 11:51 alcance.py
+    555 abr  8 11:56 clases-herencia-override.py
+    519 abr  8 12:01 funciones-bin.py
+   1655 abr  8 12:12 funciones-print-archivo.py
+    679 abr  8 12:19 io-try-except.py
+    622 abr  8 12:21 io-try.py
+     95 abr  8 12:25 test.py
+    899 abr  8 12:43 hilos-01.py
+   1046 abr  8 12:58 hilos-06-carrera.py
+   2708 abr  8 14:20 hilos-08-prod_cons-lock.py
+   1979 abr 18 14:36 hilos-09-prod_cons-cola.py
+   1943 abr 19 17:23 CLASS-examples.py
+    368 abr 19 17:26 clase.py
+   4096 abr 19 17:40 igg
+    990 abr 19 19:36 concurrencia-io-01-no_concurrencia.py
+   1601 abr 19 19:38 concurrencia-io-02-hilos.py
+     60 abr 23 16:04 Archivo.txt
+   4096 abr 23 16:11 .
+   4096 abr 23 16:12 mis_cosas
