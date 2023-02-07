@@ -1,0 +1,72 @@
+LINKS LINUX THEMES
+	Introduction to Linux Network Namespaces
+		https://www.youtube.com/watch?v=_WgUwUf1d34
+
+
+LINKS GIT
+
+	https://gitlab.com/jpelorat/frutas/-/blob/main/lista.txt	
+	http://git-cheatsheet.com/	
+	https://git-scm.com/docs/git-difftool	
+	www.atmos.albany.edu/daes/atmclasses/atm350/vi_cheat_sheet.pdf	
+	https://tmuxcheatsheet.com/	
+	https://github.com/samoshkin/tmux-config
+
+  update GIT in linux
+		- https://git-scm.com/
+	  - https://git-scm.com/search/results?search=update%20git%20version
+
+VIDEOS
+
+  David Mahler
+	Introduction to Git - Core Concepts
+		https://www.youtube.com/watch?v=uR6G2v_WsRA
+	Introduction to Git - Branching and Merging
+		https://www.youtube.com/watch?v=FyAAIHHClqI
+	Introduction to Git - Remote
+		https://www.youtube.com/watch?v=Gg4bLk8cGNo
+	
+  Leela Web Dev -->  GIT - complete course (65 videos "cápsula" of 10 min aprox)
+	  (no es bueno como expositor de ideas, pero aparacen trucos de interés)
+	  https://youtu.be/vMdSqMf6BPY?list=PL_euSNU_eLbegnt7aR8I1gXfLhKZbxnYX
+
+  HolaMundo 
+    https://www.youtube.com/watch?v=VdGzPZ31ts8  (1h 6m)
+
+  Simplilearn
+	  https://www.youtube.com/watch?v=eeuNAIZoWRU (2h 30m)
+  
+	Makigas (en español)  (41 videos-cápsula)
+    https://www.youtube.com/playlist?list=PLTd5ehIj0goMCnj6V5NdzSIHBgrIXckGU
+
+El contenido de los videos están basados en el libro Pro Git (Scott
+Chacon) https://git-scm.com/book/en/v2. Es libre así que te lo puedes
+bajar
+
+git fetch-pull-push
+
+OJO: precisar ->
+	
+	 sudo su - ziggy
+
+	 sigf crea sesión con: tmux new -s ProgN -n ProgN
+
+	sudo -su ziggy (convertirse en usuario ziggy)
+	tmux attach -t ProgN
+
+	tmux new -s ProgN -n ProgN (s: sesión n:ventanas)
+	bccompare
+	¿cómo abrir en tmux con el otro usuario?
+
+	ssh -> claves pub-priv (ssh keygen) vs trbajar lógica gitlab-https
+
+PASOS PARA PRACTICAR COMO SI FUERA 2 USUARIOS 
+	trabajando en un proyecto
+
+1.- en una cónsola cambiar a otro usuario: sudo su - ziggy
+
+2.- git init
+
+3.- git remote -v   ,  git remote -l
+
+

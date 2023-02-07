@@ -1,0 +1,40 @@
+VI commands
+  - https://www.onlinetutorialspoint.com/linux/linux-vi-commands-list.html
+
+w3schools
+  - https://www.w3schools.com/git/default.asp
+
+https://gitlab.com/jpelorat/frutas/-/blob/main/lista.txt
+
+http://git-cheatsheet.com/
+
+https://git-scm.com/docs/git-difftool
+
+www.atmos.albany.edu/daes/atmclasses/atm350/vi_cheat_sheet.pdf
+
+https://tmuxcheatsheet.com/
+
+https://github.com/samoshkin/tmux-config
+
+WORK FLOW WITH BRANCHS, AVOIDING CONFLICTS... Example of a worhflow
+
+  - https://www.quora.com/What-is-the-proper-Git-workflow-for-multiple-developers-to-work-on-
+	  the-same-task-How-can-we-avoid-conflicts-and-keep-developers-in-sync/answer/Steven-J-Owens
+		
+		One commonality is that most Git workflows will use branching a whole lot more than 
+		centralized revision systems. With Git, you think in terms of branching. A lot. 
+		Git makes branching easy, fast and reliable. 
+		If you’re coming from a centralized revision control system (for example Subversion) 
+		it may take a while to internalize this and become comfortable with branching.
+
+	- https://www.toolsqa.com/git/branch-in-git/
+	
+  - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-
+	  your-work-with-pull-requests/about-branches	
+		
+	- https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+
+  - https://www.freecodecamp.org/news/how-git-branches-work/
+
+	     - Git Branches Tutorial -> https://youtu.be/e2IbNHi4uCI	
+			

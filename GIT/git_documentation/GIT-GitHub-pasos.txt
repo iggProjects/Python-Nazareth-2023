@@ -1,0 +1,50 @@
+PASOS
+
+sigf, comics page:  https://xkcd.com/1597/
+
+https://github.com/git-guides/install-git
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+MANUAL
+  - git commands --> https://getdocs.org/Category:Git_latest_documentation
+  - https://desarrolloweb.com/manuales/manual-de-git.html#capitulos185
+
+LINUX UBUNTU
+
+You can install Git on Linux through the package management tool that comes with your distribution.
+Debian/Ubuntu
+
+1    Git packages are available using apt.
+
+2    It's a good idea to make sure you're running the latest version. To do so, Navigate to your command 
+	prompt shell and run the following command to make sure everything is up-to-date: sudo apt-get update.
+
+3    To install Git, run the following command: sudo apt-get install git-all.
+
+4    Once the command output has completed, you can verify the installation by typing: git version
+
+Get started with git and GitHub : boton "sign up for git hub"
+
+TUTORIALS
+
+	https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+	https://www.freecodecamp.org/news/git-and-github-for-beginners/
+
+	https://www.diegocmartin.com/tutorial-git/
+
+	Colt Steele: 
+	  - https://www.youtube.com/watch?v=USjZcfj8yxE  (15 min)
+
+  	Programming with Mosh
+	  - https://www.youtube.com/watch?v=8JJ101D3knE  (1 h 09 m)
+
+	https://www.youtube.com/watch?v=FyAAIHHClqI
+
+	https://www.youtube.com/watch?v=HiXLkL42tMU
+
+
+
+
+
