@@ -2,10 +2,6 @@
   Making a guest list    
 """
 
-# IMPORT  (searching in "sub folder" MyFunctions)
-from MyFunctions.MyFunc import *
-from MyFunctions.Colors import *
-
 # constants 
 # maximun number of guests
 MAX_GUESTS=3
