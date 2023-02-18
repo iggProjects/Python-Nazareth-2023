@@ -101,5 +101,15 @@ for i in range(0, 16):
 print(printString)
 
 CSI = "\x1B["
-print(CSI+"31;44m" + "Colored Text" + CSI + "0m")
+print(CSI+"31;94m" + "Colored Text" + CSI + "0m")
 
+def colors_text256(color_):  
+    num1 = str(color_)  
+    num2 = str(color_).ljust(3, ' ')  
+    if color_ % 16 == 0:  
+        return(f"\033[48;5;{num1}m {num2} \033[0;0m\n")  
+    else:  
+        return(f"\033[48;5;{num1}m {num2} \033[0;0m")  
+  
+print("\nThe 256 colors scheme is:")  
+print('--'.join([colors_text256(x) for x in range(256)]))  
