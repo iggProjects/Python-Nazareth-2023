@@ -13,8 +13,8 @@
 import sys
 # caution: path[0] is reserved for script path (or '' in REPL)
 #sys.path.insert(0, '\ML_Project\Python-igg\Modulo-2-Sgf\igg\MyFunctions')
-from zFunctions import *
-import Colors
+from MyFunc import *
+from Colors import *
 
 """
 

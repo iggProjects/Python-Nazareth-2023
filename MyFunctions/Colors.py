@@ -1,6 +1,7 @@
 """
-My colors for printing
+            😎  My colors for printing  😎
 """
+
 
 def Purple(mens): print("\033[95m{}\033[00m\n" .format(mens)) 
 def Yellow(mens): print("\033[93m{}\033[00m\n" .format(mens)) 

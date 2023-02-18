@@ -1,3 +1,4 @@
+
 # probando la sentencia "from file import function"
 #
 # https://sweetcode.io/python-file-importation-multi-level-directory-modules-packages/
@@ -7,34 +8,17 @@
 # https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
 #
 
+# calling zFunctions from its folder
+# Create file __init__.py empty in that folder - is for read dir
 
-## calling zFunctions from its folder
-## Create file __init__.py empty in that folder - is for read dir
-
-#import sys
+# import sys
 # caution: path[0] is reserved for script path (or '' in REPL)
-#sys.path.insert(0, '../MyFunctions/')
-#sys.path.insert(0, 'C:\ML_Project\NazarethCourse2023\Python-Nazareth-2023\MyFunctions')
-from MyFunctions.zFunctions import mostrar,ver_objetos
+# sys.path.insert(0, '../MyFunctions/')
+# sys.path.insert(0, 'C:\ML_Project\NazarethCourse2023\Python-Nazareth-2023\MyFunctions')
+
+# searching in "sub folder" MyFunctions
+from MyFunctions.MyFunc import *
 from MyFunctions.Colors import *
-
-"""
-
-def Purple(mens): print("\033[95m{}\033[00m\n" .format(mens)) 
-def Yellow(mens): print("\033[93m{}\033[00m\n" .format(mens)) 
-
-# https://www.geeksforgeeks.org/print-colors-python-terminal/
-# colored text and background 
-
-def prRed(skk): print("\033[91m{}\033[00m" .format(skk)) 
-def prGreen(skk): print("\033[92m{}\033[00m" .format(skk)) 
-def prYellow(skk): print("\033[93m{}\033[00m" .format(skk)) 
-def prLightPurple(skk): print("\033[94m{}\033[00m" .format(skk)) 
-def prPurple(skk): print("\033[95m{}\033[00m" .format(skk)) 
-def prCyan(skk): print("\033[96m{}\033[00m" .format(skk)) 
-def prLightGray(skk): print("\033[97m{}\033[00m" .format(skk)) 
-def prBlack(skk): print("\033[98m{}\033[00m" .format(skk)) 
-"""
 
 # type Cadena
 Purple('type string')
