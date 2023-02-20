@@ -5,7 +5,15 @@
 # colored text and background 
 
 # TEXT CONSTANTS
-
+FG_RED          = 91
+FG_GREEN        = 92
+FG_YELLOW       = 93
+FG_LIGHT_PURPLE = 94
+FG_PURPLE       = 95
+FG_CYAN         = 96
+FG_LIGHT_GRAY   = 97
+FG_BLUE         = 34   # ???
+FG_BLACK        = 98
 
 # BACKGROUND CONSTANTS
 BG_BLACK  = 16
@@ -26,26 +34,38 @@ def prLightGray(msg):   print("\033[97m{}\033[00m".format(msg))
 def prBlue(msg):        print("\033[34m{}\033[00m".format(msg)) 
 def prBlack(msg):       print("\033[98m{}\033[00m".format(msg)) 
 
+
+
+# FUNCTIONS
+
+# foreground
+def prFG(msg,col):
+    col1 = str(col)
+    return print(("\033[" + col1 + "m " + msg + " \033[0;0m\n"))
+
 # background
 def prBG(msg,col):
     col1 = str(col)
     return print(("\033[48;5;" + col1 + "m " + msg + " \033[0;0m\n"))
     #return(f"\033[48;5;{col1}m {col1} \033[0;0m\n".format(msg))
 
-def prOrangeBG(msg): 
+def prBG_orange(msg): 
     return print(("\033[48;2;255;165;0m {} \033[0;0m".format(msg)))
 
 # fg
-prRed('Zaspiki zara...') 
-prGreen('Zaspiki zara...')
-prYellow('Zaspiki zara...')
-prLightPurple('Zaspiki zara...')
-prPurple('Zaspiki zara...')
-prCyan('Zaspiki zara...')
-prLightGray('Zaspiki zara...')
-prBlue('Zaspiki zara...')
-prBlack('Zaspiki zara...')
-print()
+#prFG('LETRAS',96)
+prFG('LETRAS red',FG_RED) 
+prFG('LETRAS green',FG_GREEN)
+prFG('LETRAS yellow',FG_YELLOW )
+prFG('LETRAS light purple',FG_LIGHT_PURPLE)
+prFG('LETRAS purple',FG_PURPLE)
+prFG('LETRAS cyan',FG_CYAN)
+prFG('LETRAS light gray',FG_LIGHT_GRAY)
+prFG('LETRAS blue',FG_BLUE)
+prFG('LETRAS black',FG_BLACK)
+
+
+
 
 # bg
 prBG('Zaspiki zara...',BG_BLACK)   # black
@@ -54,4 +74,4 @@ prBG('Zaspiki zara...',BG_BLUE)    # blue
 prBG('Zaspiki zara...',BG_RED)     # red
 prBG('Zaspiki zara...',BG_ORANGE)  # orange
 
-prOrangeBG('Zaspiki zara...')
+prBG_orange('Zaspiki zara...')
