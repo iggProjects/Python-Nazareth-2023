@@ -4,7 +4,7 @@
 # https://www.geeksforgeeks.org/print-colors-python-terminal/
 # colored text and background 
 
-# TEXT CONSTANTS
+# FOREGORUND CONSTANTS
 FG_RED          = 91
 FG_GREEN        = 92
 FG_YELLOW       = 93
@@ -21,9 +21,10 @@ BG_BLUE   = 17
 BG_RED    = 124
 BG_ORANGE = 165
 
+# FOREGROUND
 
 
-# foreground
+# foreground functions
 def prRed(msg):         print("\033[91m{}\033[00m".format(msg)) 
 def prGreen(msg):       print("\033[92m{}\033[00m".format(msg)) 
 def prYellow(msg):      print("\033[93m{}\033[00m".format(msg)) 
@@ -34,9 +35,10 @@ def prLightGray(msg):   print("\033[97m{}\033[00m".format(msg))
 def prBlue(msg):        print("\033[34m{}\033[00m".format(msg)) 
 def prBlack(msg):       print("\033[98m{}\033[00m".format(msg)) 
 
+# FOREGROUND CONSTANTS
+def frGREEN(msg):  return f"\033[92m{msg} \033[00m" 
 
-
-# FUNCTIONS
+# PRINT FUNCTIONS
 
 # foreground
 def prFG(msg,col):

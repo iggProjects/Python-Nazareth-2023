@@ -8,7 +8,7 @@
 
 def input_edad():
     global seguir,trabajadores
-    trabajador = {"nombre":'',"edad":[]}
+    trabajador = {"nombre":'',"edad":''}
 
     try:
         edad_trabaj=int(input("Por favor indique su edad (entre 18 y 65): "))
@@ -23,6 +23,7 @@ def input_edad():
 
             rpta=str(input("\nDesea seguir incluyendo trabajadores (Y,N): "))
             print(f"Su rpta es: {rpta}\n")
+
             if rpta=="N":
                 seguir=False
 
