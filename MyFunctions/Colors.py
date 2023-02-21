@@ -4,7 +4,7 @@
 # https://www.geeksforgeeks.org/print-colors-python-terminal/
 # colored text and background 
 
-# TEXT CONSTANTS
+# FOREGORUND CONSTANTS
 FG_RED          = 91
 FG_GREEN        = 92
 FG_YELLOW       = 93
@@ -21,9 +21,10 @@ BG_BLUE   = 17
 BG_RED    = 124
 BG_ORANGE = 165
 
+# FOREGROUND
 
 
-# foreground
+# foreground functions
 def prRed(msg):         print("\033[91m{}\033[00m".format(msg)) 
 def prGreen(msg):       print("\033[92m{}\033[00m".format(msg)) 
 def prYellow(msg):      print("\033[93m{}\033[00m".format(msg)) 
@@ -34,9 +35,11 @@ def prLightGray(msg):   print("\033[97m{}\033[00m".format(msg))
 def prBlue(msg):        print("\033[34m{}\033[00m".format(msg)) 
 def prBlack(msg):       print("\033[98m{}\033[00m".format(msg)) 
 
+# FOREGROUND CONSTANTS
+def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
+def frRED(msg):  return f"\033[91m{msg} \033[00m"   # red
 
-
-# FUNCTIONS
+# PRINT FUNCTIONS
 
 # foreground
 def prFG(msg,col):
@@ -52,8 +55,8 @@ def prBG(msg,col):
 def prBG_orange(msg): 
     return print(("\033[48;2;255;165;0m {} \033[0;0m".format(msg)))
 
+"""
 # fg
-#prFG('LETRAS',96)
 prFG('LETRAS red',FG_RED) 
 prFG('LETRAS green',FG_GREEN)
 prFG('LETRAS yellow',FG_YELLOW )
@@ -63,15 +66,13 @@ prFG('LETRAS cyan',FG_CYAN)
 prFG('LETRAS light gray',FG_LIGHT_GRAY)
 prFG('LETRAS blue',FG_BLUE)
 prFG('LETRAS black',FG_BLACK)
-
-
-
-
+"""
+"""
 # bg
 prBG('Zaspiki zara...',BG_BLACK)   # black
 prBG('Zaspiki zara...',BG_BLACK)   # black
 prBG('Zaspiki zara...',BG_BLUE)    # blue 
 prBG('Zaspiki zara...',BG_RED)     # red
 prBG('Zaspiki zara...',BG_ORANGE)  # orange
-
 prBG_orange('Zaspiki zara...')
+"""
