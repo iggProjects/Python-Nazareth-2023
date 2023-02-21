@@ -26,6 +26,10 @@ def ver_objetos(obj):
 # IMPORT
 # import Colors
 
+# pause function
+def pause():
+	userInput = input('Press ENTER to continue, or CTRL-C to exit ');
+
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
   import math
@@ -81,19 +85,23 @@ def ver_objetos(obj):
 
 def ver_elementos(obj, todo=True):
   enum=1
+  print_count = 1
   si_color='\033[0;91m'
   no_color='\033[0m'
   # Coloreado Purpura \033[0;95m
+  numb_elem=len(dir(obj))
+  #print(f"object '{obj}' type '{type(obj)}' has {numb_elem} elements") 
   print(si_color + 'TIPO: ' + no_color + str(type(obj)) + '\n')
   print(si_color + 'DOC: ' + no_color + type(obj).__doc__ + '\n')
+  
   for elemento in dir(obj):
     if todo == False and '_' in elemento:
       pass
     else:
-      ver='obj.' + elemento
+      ver='obj.' + elemento      
       # Coloreado Rojo \033[0;91m
       si_color='\033[0;91m'
-      print(si_color + 'Elemento' + str(enum) + ' ' + no_color + ver)
+      print(si_color + 'Elemento ' + str(enum) + ': ' + no_color + ver)
       if 'method' in str(eval(ver)):
         # Coloreado Amarillo \033[0;93m
         si_color='\033[0;93m'
@@ -110,13 +118,41 @@ def ver_elementos(obj, todo=True):
         # Coloreado Verde \033[0;92m
         si_color='\033[0;92m'
         descripcion='Atribu'
+
       print(si_color + descripcion + ' --> ' + no_color + str(eval(ver)) )
       print(si_color + 'Tipo   --> ' + no_color + str(type(eval(ver))) )
       print(si_color + 'Doc    --> ' + no_color + str(eval(ver).__doc__) + '\n')
       enum=enum+1
+      print_count += 1
+      if print_count == 11:
+          print_count = 1
+          pause()
 
+def help_obj_method(obj):
+    
+    si_color='\033[0;93m'
+    no_color='\033[0m' 
 
-"""
-x=[0,1,2,3,4,'hola']
+    obj_method = str(input(f"what method of object '{obj}' you want to see? "))
+
+    if obj_method in dir(obj):
+      my_method = dir(obj)[dir(obj).index(obj_method)]  
+      print(f"\nmethod exits --> {dir(obj).index(obj_method)}: {my_method} \n")
+      print(f"\nDocumentation:\n {'obj.'+my_method.__doc__} \n")
+      print(f"\n eval() {str(eval(my_method))} \n")
+      #print(si_color + ' --> ' + no_color + str(eval(my_method)) )
+      #print(si_color + 'Tipo   --> ' + no_color + str(type(eval(my_method))) )
+      #print(si_color + 'Doc    --> ' + no_color + str(eval(my_method).__doc__) + '\n')
+
+    else:
+        print("there is no such method")
+
+    
+
+#x=[0,1,2,3,4,'hola']
+x='123rty'
+
 mostrar(x)
-"""
+#ver_objetos(x)
+#ver_elementos(x)
+help_obj_method(x)
