@@ -101,7 +101,7 @@ def ver_elementos(obj, todo=True):
       ver='obj.' + elemento      
       # Coloreado Rojo \033[0;91m
       si_color='\033[0;91m'
-      print(si_color + 'Elemento ' + str(enum) + ': ' + no_color + ver)
+      print(si_color + 'Elemento ' + str(enum) + ': ' + no_color + ver + ' || '+ str(eval(ver)))      
       if 'method' in str(eval(ver)):
         # Coloreado Amarillo \033[0;93m
         si_color='\033[0;93m'
@@ -136,10 +136,11 @@ def help_obj_method(obj):
     obj_method = str(input(f"what method of object '{obj}' you want to see? "))
 
     if obj_method in dir(obj):
-      my_method = dir(obj)[dir(obj).index(obj_method)]  
+      my_method = dir(obj)[dir(obj).index(obj_method)]
       print(f"\nmethod exits --> {dir(obj).index(obj_method)}: {my_method} \n")
       print(f"\nDocumentation:\n {'obj.'+my_method.__doc__} \n")
-      print(f"\n eval() {str(eval(my_method))} \n")
+      
+      #print(f"\n eval() {str(eval(dir(obj)[78]))} \n")
       #print(si_color + ' --> ' + no_color + str(eval(my_method)) )
       #print(si_color + 'Tipo   --> ' + no_color + str(type(eval(my_method))) )
       #print(si_color + 'Doc    --> ' + no_color + str(eval(my_method).__doc__) + '\n')
@@ -154,5 +155,5 @@ x='123rty'
 
 mostrar(x)
 #ver_objetos(x)
-#ver_elementos(x)
+ver_elementos(x)
 help_obj_method(x)
