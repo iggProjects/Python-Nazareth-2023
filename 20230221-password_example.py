@@ -7,11 +7,9 @@
 import re   
 import MyFunctions.Colors as Col
 
-
 # FUNCTIONS
 
 def pw_input():
-    #global pw1,pw2,pwError
     try:     
         passw = str(input(Col.frGREEN("Please enter your password: ")))         
         return passw        
