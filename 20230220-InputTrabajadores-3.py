@@ -18,6 +18,7 @@ def input_worker_data():
     global moreData,workers
     worker = {"name":'',"age":''}
 
+    # first try for name
     try:
         
         #name_worker=str(input("\033[94mPlease enter your name: \033[00m"))               
@@ -28,13 +29,11 @@ def input_worker_data():
       
             print(Col.frGREEN(f"\tname -> {name_worker}"))
 
-            # code to update DB
-            # using var type dictionary
-            
+            # code to update DB or create a list with data type dictionary            
             worker["name"] = name_worker
             workers.append(worker)
 
-            ans=str(input("\nDesea seguir incluyendo trabajadores (Y,N): "))
+            ans=str(input("\nDo you want to continue including workers? (Y,N): "))
             print(f"Your answer: {ans}\n")
 
             if ans=="N":
