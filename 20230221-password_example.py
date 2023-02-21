@@ -45,3 +45,4 @@ print((Col.frGREEN(f"\n{password_data}\n")))
 print((Col.frGREEN("\nThat's all for today... 👌")))
 
 
+
