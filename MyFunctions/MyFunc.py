@@ -27,7 +27,8 @@ def matrix_view(obj_l_t,n_cols):
     for j in range(n_cols):
       if i*n_cols+j<len(obj_l_t):
         line.append(obj_l_t[i*n_cols+j])
-    print(f"line: {i+1} --> {line}\n")
+    print(f"line: {i+1} --> {line}")
+    #print(f"line: {i+1} --> {line}\n")
     line=[]  
 
 # Show attributes and methods avalaible for "obj"
@@ -180,8 +181,8 @@ def desc_obj_method(obj,todo=True):
       print(Colors.frRED("\nthere is no such method 🙄\n"))
 
 
-#x=[0,1,2,3,4,'hola']
-x='123rty'
+x=[0,1,2,3,4,'hola']
+#x='123rty'
 
 mostrar(x)
 #ver_objetos(x)
