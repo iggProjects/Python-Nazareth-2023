@@ -2,7 +2,8 @@
 
 # IMPORT
 import re   
-import MyFunctions.Colors as Col
+import MyFunctions.Colors_out as Col
+import MyFunctions.MyFunc as MyFunc
 
 # Y,N answer function
 def Y_N():
@@ -75,3 +76,6 @@ if __name__ == "__main__":
 else:
     # something wrong
     print(f"upsssssssss")
+
+print("moreData")
+MyFunc.desc_obj_method([1,2,3])    

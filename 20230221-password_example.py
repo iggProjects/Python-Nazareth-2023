@@ -5,7 +5,8 @@
 
 # IMPORT
 import re   
-import MyFunctions.Colors as Col
+import MyFunctions.Colors_out as Col
+import MyFunctions.MyFunc as MyFunc
 
 # FUNCTIONS
 
@@ -42,7 +43,8 @@ if __name__ == "__main__":
         password()
 
 print((Col.frGREEN(f"\n{password_data}\n")))
-print((Col.frGREEN("\nThat's all for today... 👌")))
 
+MyFunc.mostrar(password_data)
+print((Col.frGREEN("\nThat's all for today... 👌")))
 
 

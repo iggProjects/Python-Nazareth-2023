@@ -8,11 +8,16 @@
 """
 
 # IMPORT
-import Colors
+#import Colors_in as Colors
+
+# FOREGROUND CONSTANTS
+def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
+def frRED(msg):  return f"\033[91m{msg} \033[00m"   # red
+
 
 # pause function
 def pause():
-	userInput = input('Press ENTER to continue, or CTRL-C to exit ');
+	userInput = input('Press ENTER to continue, or CTRL-C to exit ')
 
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
@@ -32,7 +37,7 @@ def matrix_view(obj_l_t,n_cols):
     line=[]  
 
 # Show attributes and methods avalaible for "obj"
-def mostrar(obj):  
+def mostrar(obj):    
   print(f"Object elements view in matrix form (8 columns by row)\n")
   matrix_view(obj,8)
   # obj type and mem dir
@@ -128,7 +133,8 @@ def desc_obj_method(obj,todo=True):
     print(si_color + 'TIPO: ' + no_color + str(type(obj)) + '\n')
     print(si_color + 'DOC: ' + no_color + type(obj).__doc__ + '\n')
     
-    obj_method = str(input(Colors.frRED(f"what method of object '{obj}' you want to see?" )))
+    obj_method = str(input(frRED(f"what method of object '{obj}' you want to see?" )))
+    #obj_method = str(input(Colors.frRED(f"what method of object '{obj}' you want to see?" )))
     print()
     #obj_method = str(input(f"what method of object '{obj}' you want to see? "))
     #print(Colors.frGREEN(f"\n\tobj method selected --> '{obj_method}'\n"))
@@ -178,16 +184,21 @@ def desc_obj_method(obj,todo=True):
            pass          
     
     if not method_founded:      
-      print(Colors.frRED("\nthere is no such method 🙄\n"))
+      print(frRED("\nthere is no such method 🙄\n"))
+      #print(Colors.frRED("\nthere is no such method 🙄\n"))
 
 
-x=[0,1,2,3,4,'hola']
+#x = [0,1,2,3,4,'hola']
+x = {'user':'iñaki','passw':'xx' }
 #x='123rty'
 
-mostrar(x)
+
+# testing
+#mostrar(x)
 #ver_objetos(x)
 #ver_elementos(x)
-desc_obj_method(x)
-pause()
-print(Colors.frGREEN("\nthat's all 😎\n"))
+#desc_obj_method(x)
+#pause()
+#print(frGREEN("\nthat's all 😎\n"))
+#print(Colors.frGREEN("\nthat's all 😎\n"))
 #help_obj_method(x)
