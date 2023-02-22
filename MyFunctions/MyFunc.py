@@ -1,30 +1,14 @@
-# probando la sentencia "from file import function"
+"""
+ My functions to;
+   - see objects methods and attributes,
+   - view object info in matrix form
+   - pause printing
+   - use HELP function
 
-# Funcion para detallar objetos
 """
-def mostrar(obj):
-		print("\tVariable: ", obj, "es", type(obj), "\n\tmemDir  : ", id(obj))
-		attributes = [attr for attr in dir(obj) 
-			if not attr.startswith('__')]
-		print('\tProperties & Methods ->' ,attributes, '\n')
-	
-def ver_objetos(obj):
-	enum=1
-	si_color='\033[0;91m'
-	no_color='\033[0m'
-	print(si_color + 'TIPO:' + no_color, str(type(obj)) , '\n')
-	for elemento in dir(obj):
-		ver='obj.' + elemento
-		print(str(si_color + 'Elemento: ' + str(enum) + ' ' + no_color + ver))
-		if 'method' in str(eval(ver)):
-			print('\tMetodo --> ', eval(ver))
-		else:
-			print('\tAtribu --> ', eval(ver))
-			print('\tTipo --> ', type(eval(ver)), '\n')
-		enum=enum+1
-"""
+
 # IMPORT
-# import Colors
+import Colors
 
 # pause function
 def pause():
@@ -129,31 +113,80 @@ def ver_elementos(obj, todo=True):
           pause()
 
 def help_obj_method(obj):
+    print(help(type(obj)))    
+
+def desc_obj_method(obj,todo=True):
     
-    si_color='\033[0;93m'
-    no_color='\033[0m' 
-
-    obj_method = str(input(f"what method of object '{obj}' you want to see? "))
-
-    if obj_method in dir(obj):
-      my_method = dir(obj)[dir(obj).index(obj_method)]
-      print(f"\nmethod exits --> {dir(obj).index(obj_method)}: {my_method} \n")
-      print(f"\nDocumentation:\n {'obj.'+my_method.__doc__} \n")
-      
-      #print(f"\n eval() {str(eval(dir(obj)[78]))} \n")
-      #print(si_color + ' --> ' + no_color + str(eval(my_method)) )
-      #print(si_color + 'Tipo   --> ' + no_color + str(type(eval(my_method))) )
-      #print(si_color + 'Doc    --> ' + no_color + str(eval(my_method).__doc__) + '\n')
-
-    else:
-        print("there is no such method")
-
+    method_founded = False
+    enum=1
+    print_count = 1
+    si_color = '\033[0;91m'
+    no_color = '\033[0m'
+    descripcion = ''
+    ver = ''
+    print(si_color + 'TIPO: ' + no_color + str(type(obj)) + '\n')
+    print(si_color + 'DOC: ' + no_color + type(obj).__doc__ + '\n')
     
+    obj_method = str(input(Colors.frRED(f"what method of object '{obj}' you want to see?" )))
+    print()
+    #obj_method = str(input(f"what method of object '{obj}' you want to see? "))
+    #print(Colors.frGREEN(f"\n\tobj method selected --> '{obj_method}'\n"))
+
+    for elemento in dir(obj):
+      if todo == False and '_' in elemento:
+        pass
+      else:       
+        #print(f"\nelemento: {elemento} -- type {type(elemento)}\n")  
+        #if obj_method in dir(elemento):
+        if obj_method in elemento:     
+          method_founded = True     
+          ver='obj.' + elemento      
+          # Coloreado Rojo \033[0;91m
+          si_color='\033[0;91m'
+          
+          if 'method' in str(eval(ver)):
+            # Coloreado Amarillo \033[0;93m
+            si_color='\033[0;93m'
+            descripcion='Metodo'
+          elif 'function' in str(eval(ver)):
+            # Coloreado Azul \033[0;94m
+            si_color='\033[0;94m'
+            descripcion='Funcion'
+          elif 'class' in str(eval(ver)):
+            # Coloreado Cyan \033[0;96m
+            si_color='\033[0;96m'
+            descripcion='Clase '
+          else:
+            # Coloreado Verde \033[0;92m
+            si_color='\033[0;92m'
+            descripcion='Atribu'
+
+          #Colors.frGREEN(f"elemento {str(enum)}: {str(eval(ver))} \n")
+          print(si_color + str(enum) + ': ' + ver + no_color + '\n')        
+          # print(si_color + str(enum) + ': ' + ver + ' || ' + str(eval(ver)) + no_color + '\n')        
+          print(si_color +  descripcion + ' --> ' + no_color + str(eval(ver)) )
+          print(si_color +  'Tipo   --> ' + no_color + str(type(eval(ver))) )
+          print(si_color +  'Doc    --> ' + no_color + str(eval(ver).__doc__) + '\n')
+          enum=enum+1
+          print_count += 1
+          if print_count == 11:
+              print_count = 1
+              pause()
+
+        else: 
+           pass          
+    
+    if not method_founded:      
+      print(Colors.frRED("\nthere is no such method 🙄\n"))
+
 
 #x=[0,1,2,3,4,'hola']
 x='123rty'
 
 mostrar(x)
 #ver_objetos(x)
-ver_elementos(x)
-help_obj_method(x)
+#ver_elementos(x)
+desc_obj_method(x)
+pause()
+print(Colors.frGREEN("\nthat's all 😎\n"))
+#help_obj_method(x)
