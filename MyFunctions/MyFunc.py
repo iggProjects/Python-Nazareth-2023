@@ -1,15 +1,22 @@
 """
  My functions to;
-   - see objects methods and attributes,
+   - see objects types, methods and attributes,
    - view object info in matrix form
-   - pause printing
+   - pause printing colors options
    - use HELP function
+   - write in log files, like "comments log", "errors log"
+   - 
 
 """
 
-# IMPORT
-#import Colors_in as Colors
-#     PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
+# IMPORT LIBRERIES OR YOUR OWN FUNCTIONS 
+"""
+import Colors_in as Colors
+   -->  PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
+
+"""
+
+# COLORS CONSTANTS
 
 # FOREGROUND CONSTANTS
 def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
@@ -50,24 +57,39 @@ def prBG_orange(msg):
 
 # pause function
 def pause():
-	userInput = input('Press ENTER to continue, or CTRL-C to exit ')
+	userInput = input('Press ENTER to continue, or CTRL-C to exit ')  
+        
+def Y_N(msg):   
+    global Y_N_answer     
+    Y_N_answer=str(input(f"\n {msg} "))
+    
+    if Y_N_answer in ['Y','N']:
+        print(f"\t\t if - Answer -> {Y_N_answer}\n")                          
+        return Y_N_answer
+    else:
+        print(f"\t\t if - Answer -> {Y_N_answer}\n")                         
+        Y_N(msg)
+        
 
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
-  import math
-  # checking if obj_list is type 'list-tuple'
-  # if ():  
-  matrix_rows=math.ceil(len(obj_l_t)/n_cols)
-  lines=[]
-  line=[]
-  i=0
-  for i in  range(matrix_rows):    
-    for j in range(n_cols):
-      if i*n_cols+j<len(obj_l_t):
-        line.append(obj_l_t[i*n_cols+j])
-    print(f"line: {i+1} --> {line}")
-    #print(f"line: {i+1} --> {line}\n")
-    line=[]  
+  if type(obj_l_t) in ['list','tuple']:
+    import math
+    # checking if obj_list is type 'list-tuple'
+    # if ():  
+    matrix_rows=math.ceil(len(obj_l_t)/n_cols)
+    lines=[]
+    line=[]
+    i=0
+    for i in  range(matrix_rows):    
+      for j in range(n_cols):
+        if i*n_cols+j<len(obj_l_t):
+          line.append(obj_l_t[i*n_cols+j])
+      print(f"line: {i+1} --> {line}")
+      #print(f"line: {i+1} --> {line}\n")
+      line=[]  
+  else:
+    print(frRED(f"\nWarning: Object '{obj_l_t}' in not  list neither tupla !\n" )) 
 
 # Show attributes and methods avalaible for "obj"
 def mostrar(obj):      
@@ -85,7 +107,8 @@ def mostrar(obj):
   print(f"Object assigned attributes and methods are:\n")
   matrix_view(attr_meth,8)
   print()
-  prBG_orange("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n")  
+  prBG("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n",17)  
+  #("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n")  
   
 # 
 # Show elements looking at dir(obj)
@@ -224,13 +247,41 @@ def desc_obj_method(obj,todo=True):
       print(frRED("\nthere is no such method 🙄\n"))
       #print(Colors.frRED("\nthere is no such method 🙄\n"))
 
+# writing comments in log file
+def write_comments_log():
+   print("here write_comments log file")
 
+   
+# redirect errors msg to 'own' errors log file
+def write_comments_log():
+   print("here my errors log file")
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+    TESTING SECTION FOR DIFFERENT TYPES OF VARS
+"""
 #x = [0,1,2,3,4,'hola']
-x = {'user':'iñaki','passw':'xx' }
+#x = {'user':'iñaki','passw':'xx' }
 #x='123rty'
 
 
-# TESTING WITH DIFFERENT TYPES OF VARS
+#matrix_view(x,6)
 #mostrar(x)
 #ver_objetos(x)
 #ver_elementos(x)

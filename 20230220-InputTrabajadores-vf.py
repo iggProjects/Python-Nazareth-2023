@@ -73,12 +73,13 @@ if __name__ == "__main__":
         for key,value in workers[i].items():
             print(f"\t\t{key}: {value}")
 
+    # SHOW VARS CHARACTERISTICS 
+    print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
+    MyFunc.pause()
+    MyFunc.mostrar(workers)
+    MyFunc.desc_obj_method(workers)    
+
 else:
     # something wrong
     print(f"upsssssssss")
 
-# SHOW VARS CHARACTERISTICS 
-print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
-MyFunc.pause()
-MyFunc.mostrar(workers)
-MyFunc.desc_obj_method(workers)    
