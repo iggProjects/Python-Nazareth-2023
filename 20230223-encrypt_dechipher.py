@@ -23,17 +23,26 @@ def Y_N(msg):
     else:
         Y_N(msg)
 
-def Y_N_2(msg):   
-    #global Y_N_answer     
-    Y_N=str(input(f"\n {msg} "))    
-    if Y_N == 'Y':
-      print(f"\t\t if - Answer -> {Y_N}\n")                          
-      return 'Y'
-    elif Y_N == 'N':
-      return 'N'
-    else:
-        print(f"\t\t if - Answer -> {Y_N}\n")                         
-        Y_N_2(msg)
+# print char by char
+def print_char_by_char(my_text):
+    for ch in my_text:
+        print(ch)
+
+# funtion to encrypt a text
+def encrypt(text):
+    global encripted_text        
+    #list_changes_chars = {'a':128, 'b':129, 'c':130}    
+    text=text.replace('a','128') 
+    text=text.replace('b','129')
+    text=text.replace('c','130')    
+    encripted_text=text
+
+def decipher(text):
+    global decoded_text    
+    text=text.replace('128','a')
+    text=text.replace('129','b')
+    text=text.replace('130','c')    
+    decoded_text = text
 
 #
 # ---------- MAIN ----------
@@ -43,7 +52,17 @@ if __name__ == "__main__":
     MyFunc.pause()
 
     # your code
+    encripted_text = ''
+    decoded_text = ''
 
+    my_text = 'Mi buen amigo, como has estado?'
+    print(Col.frGREEN(f"orig text:\n {my_text}\n"))
+    
+    encrypt(my_text)
+    print(Col.frGREEN(f"encripted text:\n {encripted_text}\n"))
+    
+    decipher(encripted_text)
+    print(Col.frGREEN(f"decoded text:\n {decoded_text}\n"))
 
     
     # ------------------------------------------------

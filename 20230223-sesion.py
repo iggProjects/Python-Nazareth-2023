@@ -23,41 +23,43 @@ def Y_N(msg):
     else:
         Y_N(msg)
 
-def Y_N_2(msg):   
-    #global Y_N_answer     
-    Y_N=str(input(f"\n {msg} "))    
-    if Y_N == 'Y':
-      print(f"\t\t if - Answer -> {Y_N}\n")                          
-      return 'Y'
-    elif Y_N == 'N':
-      return 'N'
+def printMsg(msg):
+    print(Col.frGREEN(f"\nmessage is: {MyFunc.FG_WH_TXT} {msg}\n"))
+
+def Sum_List(num_list):
+    type_int = all(isinstance(x, int) for x in num_list)
+    if type_int==True:              
+        return print(f"Sum of the list elements {n_list} --> {Sum_List(num_list)}\n")
     else:
-        print(f"\t\t if - Answer -> {Y_N}\n")                         
-        Y_N_2(msg)
+        return print(Col.frRED(f"Warning: in list {n_list} at least one item is not integer\n"))
+
 
 #
 # ---------- MAIN ----------
 #
 if __name__ == "__main__":
-    print(Col.frGREEN("\n---------- main ----------\n"))
+
+    print(Col.frGREEN("\n---------- MAIN ----------\n"))    
+    # Print message    
+    printMsg("hola\n")    
     MyFunc.pause()
 
-    # your code
+    # print sum of items in a list of numbres
+    n_list=[1,2,3,'x',5,6,7,8,9,10]
+   
+    Sum_List(n_list)
 
-
-    
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
-    Y_N_answer='N'
-    #Y_N_answer=Y_N_2("Do you want to see vars characteristics? (Y,N): ")
-    #Y_N_answer=MyFunc.Y_N("Do you want to see vars characteristics? (Y,N): ")
+
+    MyFunc.pause()
+
     moreData=False
     Y_N("Do you want to see vars characteristics? (Y,N): ")
-    print(f"---- MAIN --- answer --> {moreData}\n")
+    #print(f"---- MAIN --- answer --> {moreData}\n")
     
     if moreData:
-    #if Y_N_answer == 'Y':
         obj=''    # for example
         print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
         MyFunc.pause()

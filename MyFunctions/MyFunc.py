@@ -22,7 +22,7 @@ import Colors_in as Colors
 def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
 def frRED(msg):  return f"\033[91m{msg} \033[00m"   # red
 
-# FOREGORUND CONSTANTS
+# FOREGORUND CONSTANTS AS NUMBER
 FG_RED          = 91
 FG_GREEN        = 92
 FG_YELLOW       = 93
@@ -32,6 +32,9 @@ FG_CYAN         = 96
 FG_LIGHT_GRAY   = 97
 FG_BLUE         = 34   # ???
 FG_BLACK        = 98
+
+# FOREGORUND CONSTANTS AS TEXT
+FG_WH_TXT = "\033[00m"
 
 # BACKGROUND CONSTANTS
 BG_BLACK  = 16
@@ -57,7 +60,7 @@ def prBG_orange(msg):
 
 # pause function
 def pause():
-	userInput = input('Press ENTER to continue, or CTRL-C to exit ')  
+	userInput = input('Press ENTER to continue, or CTRL-C to exit\n')  
         
 """
 def Y_N(msg):   
