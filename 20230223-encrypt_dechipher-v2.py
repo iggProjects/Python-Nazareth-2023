@@ -5,6 +5,7 @@ THIS SCRIPT IS FOR..................
 # IMPORT SECTION
 import MyFunctions.MyFunc as MyFunc
 import MyFunctions.Colors_out as Col
+import string
 
 # CONSTANT SECTION
 
@@ -30,15 +31,14 @@ def print_char_by_char(my_text):
         print(ch)
 
 # funtion to encrypt a text
-def encrypt(text):
-    global encripted_text        
-    #list_changes_chars = {'a':128, 'b':129, 'c':130}    
+def encrypt(text,asciiList):
+    global encripted_text      
     text=text.replace('a','128') 
     text=text.replace('b','129')
     text=text.replace('c','130')    
     encripted_text=text
 
-def decipher(text):
+def decipher(text,asciiList):
     global decoded_text    
     text=text.replace('128','a')
     text=text.replace('129','b')
@@ -53,16 +53,30 @@ if __name__ == "__main__":
     MyFunc.pause()
 
     # your code
-    encripted_text = ''
-    decoded_text = ''
 
+    # create list of alphabet and its ascii associated
+    string.ascii_lowercase
+    'abcdefghijklmnopqrstuvwxyz'
+    list_alphab = list(string.ascii_lowercase)
+    print(Col.frGREEN(f" {list_alphab}\n"))
+    list_ascii_assoc = [ ord(lt)+10 for lt in list_alphab ]
+    print(Col.frRED(f" {list_ascii_assoc}\n")) 
+    # create a dictionary
+    keyDict = dict(zip(list_alphab,list_ascii_assoc))
+    print(Col.frGREEN(f"keyDict 👇👇\n\n {keyDict}\n")) 
+
+    MyFunc.pause()
+
+    # Call encrypt process 
+    encripted_text = ''
     my_text = 'Mi buen amigo, como has estado?'
-    print(Col.frGREEN(f"orig text:\n {my_text}\n"))
-    
-    encrypt(my_text)
+    print(Col.frGREEN(f"orig text:\n {my_text}\n"))    
+    encrypt(my_text,keyDict)
     print(Col.frGREEN(f"encripted text:\n {encripted_text}\n"))
-    
-    decipher(encripted_text)
+
+    # call decode process
+    decoded_text = ''
+    decipher(encripted_text,keyDict)
     print(Col.frGREEN(f"decoded text:\n {decoded_text}\n"))
 
     
@@ -84,7 +98,7 @@ if __name__ == "__main__":
         MyFunc.mostrar(obj)
         MyFunc.desc_obj_method(obj)  
     else:
-        print((Col.frGREEN("\n---------- That's all for today 👌 ----------")))
+        print((Col.frGREEN("\n---------- That's all for today 👌 ----------\n")))
 
 else:
     # something wrong
