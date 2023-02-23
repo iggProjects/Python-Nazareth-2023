@@ -54,7 +54,7 @@ def decipher(text):
     decoded_text = text
 
 def desc_obj_method(obj,todo=True):
-    
+   
     method_founded = False
     enum=1
     print_count = 1

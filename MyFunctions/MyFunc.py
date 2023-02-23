@@ -78,7 +78,8 @@ def Y_N(msg):
 
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
-  if type(obj_l_t) in ['list','tuple']:
+  if 'list' in str(type(obj_l_t)) or 'tuple' in str(type(obj_l_t)):  # cambiar la pregunta
+  #if type(obj_l_t) in ['list','tuple']:  # cambiar la pregunta
     import math
     # checking if obj_list is type 'list-tuple'
     # if ():  
@@ -112,8 +113,8 @@ def mostrar(obj):
   print(f"Object assigned attributes and methods are:\n")
   matrix_view(attr_meth,8)
   print()
-  prBG("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n",17)  
-  #("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n")  
+  prBG("-----------------END MOSTRAR OBJECT TYPE AND ATTRIB-METHODS-----------------",17)    
+  print()
   
 # 
 # Show elements looking at dir(obj)
