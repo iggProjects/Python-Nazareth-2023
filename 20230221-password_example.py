@@ -44,7 +44,12 @@ if __name__ == "__main__":
 
 print((Col.frGREEN(f"\n{password_data}\n")))
 
+# SHOW VARS CHARACTERISTICS 
+print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
+MyFunc.pause()
 MyFunc.mostrar(password_data)
+MyFunc.desc_obj_method(password_data)    
+
 print((Col.frGREEN("\nThat's all for today... 👌")))
 
 

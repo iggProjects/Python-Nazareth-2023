@@ -77,5 +77,8 @@ else:
     # something wrong
     print(f"upsssssssss")
 
-print("moreData")
-MyFunc.desc_obj_method([1,2,3])    
+# SHOW VARS CHARACTERISTICS 
+print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
+MyFunc.pause()
+MyFunc.mostrar(workers)
+MyFunc.desc_obj_method(workers)    

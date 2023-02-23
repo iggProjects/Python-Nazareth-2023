@@ -9,11 +9,44 @@
 
 # IMPORT
 #import Colors_in as Colors
+#     PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
 
 # FOREGROUND CONSTANTS
 def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
 def frRED(msg):  return f"\033[91m{msg} \033[00m"   # red
 
+# FOREGORUND CONSTANTS
+FG_RED          = 91
+FG_GREEN        = 92
+FG_YELLOW       = 93
+FG_LIGHT_PURPLE = 94
+FG_PURPLE       = 95
+FG_CYAN         = 96
+FG_LIGHT_GRAY   = 97
+FG_BLUE         = 34   # ???
+FG_BLACK        = 98
+
+# BACKGROUND CONSTANTS
+BG_BLACK  = 16
+BG_BLUE   = 17
+BG_RED    = 124
+BG_ORANGE = 165
+
+# PRINT FUNCTIONS
+
+# foreground
+def prFG(msg,col):
+    col1 = str(col)
+    return print(("\033[" + col1 + "m " + msg + " \033[0;0m\n"))
+
+# background
+def prBG(msg,col):
+    col1 = str(col)
+    return print(("\033[48;5;" + col1 + "m " + msg + " \033[0;0m\n"))
+    #return(f"\033[48;5;{col1}m {col1} \033[0;0m\n".format(msg))
+
+def prBG_orange(msg): 
+    return print(("\033[48;2;255;165;0m {} \033[0;0m".format(msg)))
 
 # pause function
 def pause():
@@ -37,9 +70,12 @@ def matrix_view(obj_l_t,n_cols):
     line=[]  
 
 # Show attributes and methods avalaible for "obj"
-def mostrar(obj):    
-  print(f"Object elements view in matrix form (8 columns by row)\n")
-  matrix_view(obj,8)
+def mostrar(obj):      
+
+  if type(obj) in ['list','dict']:
+    print(f"Object elements view in matrix form (8 columns by row)\n")
+    matrix_view(obj,8)
+
   # obj type and mem dir
   print(f"Object type is {type(obj)} and mem dir is: {id(obj)}\n")
   # obj attributes
@@ -48,8 +84,9 @@ def mostrar(obj):
   # print attributes and methods in matrix form
   print(f"Object assigned attributes and methods are:\n")
   matrix_view(attr_meth,8)
-  print(f"-----------------END MOSTRAR()-----------------\n")  
-
+  print()
+  prBG_orange("-----------------END MOSTRAR OBJ TYPE AND ATTRIB-METHODS-----------------\n")  
+  
 # 
 # Show elements looking at dir(obj)
 # 
@@ -193,7 +230,7 @@ x = {'user':'iñaki','passw':'xx' }
 #x='123rty'
 
 
-# testing
+# TESTING WITH DIFFERENT TYPES OF VARS
 #mostrar(x)
 #ver_objetos(x)
 #ver_elementos(x)
