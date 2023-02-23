@@ -62,9 +62,11 @@ if __name__ == "__main__":
     moreData=True
     workers = []
     worker = {"name":'',"age":''}
+
     # loop until stop is "Y"
     while moreData:    
         input_worker_data()     
+
     print("\nsession terminated by user\n")        
     print(f"Workers is {type(workers)}:\n\t{workers}\n")
     for i in range(len(workers)):

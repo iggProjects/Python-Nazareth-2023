@@ -59,17 +59,19 @@ def prBG_orange(msg):
 def pause():
 	userInput = input('Press ENTER to continue, or CTRL-C to exit ')  
         
+"""
 def Y_N(msg):   
     global Y_N_answer     
-    Y_N_answer=str(input(f"\n {msg} "))
-    
-    if Y_N_answer in ['Y','N']:
-        print(f"\t\t if - Answer -> {Y_N_answer}\n")                          
-        return Y_N_answer
+    Y_N_answer=str(input(f"\n {msg} "))    
+    if Y_N_answer == 'Y':
+      print(f"\t\t if - Answer -> {Y_N_answer}\n")                          
+      return 'Y'
+    elif Y_N_answer == 'N':
+      return 'N'
     else:
         print(f"\t\t if - Answer -> {Y_N_answer}\n")                         
         Y_N(msg)
-        
+"""        
 
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
