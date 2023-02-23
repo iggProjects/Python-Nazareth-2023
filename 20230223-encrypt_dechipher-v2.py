@@ -31,14 +31,14 @@ def print_char_by_char(my_text):
         print(ch)
 
 # funtion to encrypt a text
-def encrypt(text,asciiList):
+def encrypt(text,key_List):
     global encripted_text      
     text=text.replace('a','128') 
     text=text.replace('b','129')
     text=text.replace('c','130')    
     encripted_text=text
 
-def decipher(text,asciiList):
+def decipher(text,key_List):
     global decoded_text    
     text=text.replace('128','a')
     text=text.replace('129','b')
