@@ -77,7 +77,7 @@ if __name__ == "__main__":
     pause()
 
     # my text
-    my_text = 'abcdef ghijk'
+    my_text = 'abcdef ghijk lmnopq'
     print(frGREEN(f"my text ➡ \033[00m {my_text}\n"))
 
     # call encrypt function to change original text
