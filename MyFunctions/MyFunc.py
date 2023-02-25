@@ -1,8 +1,9 @@
 """
  My functions to;
    - see objects types, methods and attributes,
-   - view object info in matrix form
-   - pause printing colors options
+   - view objectS info in matrix form
+   - time functions like pause, ......  
+   - printing colors options
    - use HELP function
    - write in log files, like "comments log", "errors log"
    - OS most used functions
@@ -62,6 +63,11 @@ def prBG(msg,col):
 
 def prBG_orange(msg): 
     return print(("\033[48;2;255;165;0m {} \033[0;0m".format(msg)))
+
+
+#
+# TIME FUNCTIONS
+#
 
 # pause function
 def pause():
