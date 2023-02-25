@@ -9,7 +9,7 @@ import string
 import random
 
 # CONSTANT SECTION
-
+NO_COLOR = "\033[00m"
 
 # FUNCIONS SECTION
 
@@ -62,27 +62,27 @@ if __name__ == "__main__":
     'abcdefghijklmnopqrstuvwxyz'
     alphab = list(string.ascii_lowercase)
     old_alphab = list(string.ascii_lowercase)
-    print(Col.frGREEN(f"old alphabet list\033[00m:➡ {old_alphab}\n"))
+    print(Col.frGREEN(f"old alphabet list ➡  {NO_COLOR}{old_alphab}\n"))
     
     # random.shuffle() to create new_alphab
     random.shuffle(old_alphab)
     new_alphab=old_alphab       
-    print(Col.frGREEN(f"new alphabet list\033[00m ➡ {new_alphab}\n"))
+    print(Col.frGREEN(f"new alphabet list ➡  {NO_COLOR}{new_alphab}\n"))
     
 
     # my text
-    my_text = 'abcdef ghijk'
-    print(Col.frGREEN(f"my text ➡ \033[00m {my_text}\n"))
+    my_text = 'abcdef ghijk hello world'
+    print(Col.frGREEN(f"my text ➡ {NO_COLOR} {my_text}\n"))
 
     # call encrypt function to change original text
     encripted_text = ''    
     encrypt(my_text,alphab,new_alphab)
-    print(Col.frGREEN(f"encrypted text ➡ \033[00m {encripted_text}\n"))    
+    print(Col.frGREEN(f"encrypted text ➡ {NO_COLOR} {encripted_text}\n"))    
 
     # decode process
     decoded_text=''
     decipher(encripted_text,new_alphab,alphab)
-    print(Col.frGREEN(f"decoded text ➡ \033[00m {decoded_text}\n"))
+    print(Col.frGREEN(f"decoded text➡  {NO_COLOR} {decoded_text}\n"))
     print((Col.frGREEN("\n---------- That's all for today 👌 ----------\n")))
     MyFunc.pause()
    
