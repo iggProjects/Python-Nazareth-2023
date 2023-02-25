@@ -4,6 +4,7 @@
    - view objectS info in matrix form
    - time functions like pause, ......  
    - printing colors options
+   - decisions functions
    - use HELP function
    - write in log files, like "comments log", "errors log"
    - OS most used functions
@@ -73,6 +74,11 @@ def prBG_orange(msg):
 def pause():
 	userInput = input('Press ENTER to continue, or CTRL-C to exit\n')  
         
+
+#
+# DECISIONS FUNCTIONS
+#         
+
 """
 def Y_N(msg):   
     global Y_N_answer     
