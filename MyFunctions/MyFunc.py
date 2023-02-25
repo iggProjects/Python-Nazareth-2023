@@ -1,5 +1,6 @@
 """
- My functions to;
+ MY FUNCTIONS FOR:
+  
    - see objects types, methods and attributes,
    - view objectS info in matrix form
    - time functions like pause, ......  
