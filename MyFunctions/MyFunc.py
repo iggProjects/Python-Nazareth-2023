@@ -8,15 +8,18 @@
    - OS most used functions
 
 """
-
+#
 # IMPORT LIBRERIES OR YOUR OWN FUNCTIONS 
+#
 """
 import Colors_in as Colors
-   -->  PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
+   IMPORT CONFLICT -->  PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
 
 """
 
+#
 # COLORS CONSTANTS
+#
 
 # FOREGROUND CONSTANTS
 def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
@@ -43,8 +46,9 @@ BG_BLUE   = 17
 BG_RED    = 124
 BG_ORANGE = 165
 
-# PRINT FUNCTIONS
-
+#
+# COLOR PRINT FUNCTIONS
+#
 # foreground
 def prFG(msg,col):
     col1 = str(col)
@@ -76,6 +80,9 @@ def Y_N(msg):
         print(f"\t\t if - Answer -> {Y_N_answer}\n")                         
         Y_N(msg)
 """        
+#
+# PRINT VARS 
+#
 
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
@@ -97,6 +104,10 @@ def matrix_view(obj_l_t,n_cols):
       line=[]  
   else:
     print(frRED(f"\nWarning: Object '{obj_l_t}' in not  list neither tupla !\n" )) 
+
+#
+#SHOW OBJECTS INFO
+#
 
 # Show attributes and methods avalaible for "obj"
 def mostrar(obj):      
@@ -254,6 +265,10 @@ def desc_obj_method(obj,todo=True):
       print(frRED("\nthere is no such method 🙄\n"))
       #print(Colors.frRED("\nthere is no such method 🙄\n"))
 
+#
+#  LOG FILES FUNCTIONS
+#
+
 # writing comments in log file
 def write_comments_log():
    print("here write_comments log file")
@@ -264,6 +279,9 @@ def write_comments_log():
    print("here my errors log file")
 
     
+#
+#  OS FUNCTIONS
+#
 
 
 
