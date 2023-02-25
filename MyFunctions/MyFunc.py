@@ -1,6 +1,6 @@
 """
  MY FUNCTIONS FOR:
-  
+
    - see objects types, methods and attributes,
    - view objectS info in matrix form
    - time functions like pause, ......  
@@ -119,7 +119,7 @@ def matrix_view(obj_l_t,n_cols):
     print(frRED(f"\nWarning: Object '{obj_l_t}' in not  list neither tupla !\n" )) 
 
 #
-#SHOW OBJECTS INFO
+# SHOW OBJECTS INFO
 #
 
 # Show attributes and methods avalaible for "obj"
@@ -141,10 +141,7 @@ def mostrar(obj):
   prBG("-----------------END MOSTRAR OBJECT TYPE AND ATTRIB-METHODS-----------------",17)    
   print()
   
-# 
 # Show elements looking at dir(obj)
-# 
-
 def ver_objetos(obj):
 	enum=1
 	si_color='\033[0;91m'
@@ -160,10 +157,8 @@ def ver_objetos(obj):
 			print('\tTipo --> ', type(eval(ver)), '\n')
 		enum=enum+1
 
-#
-# More specific than other functions
-#
 
+# More specific info for objects
 def ver_elementos(obj, todo=True):
   enum=1
   print_count = 1
