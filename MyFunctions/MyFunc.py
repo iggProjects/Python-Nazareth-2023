@@ -5,7 +5,7 @@
    - pause printing colors options
    - use HELP function
    - write in log files, like "comments log", "errors log"
-   - 
+   - OS most used functions
 
 """
 
@@ -35,6 +35,7 @@ FG_BLACK        = 98
 
 # FOREGORUND CONSTANTS AS TEXT
 FG_WH_TXT = "\033[00m"
+NO_COLOR = "\033[00m"
 
 # BACKGROUND CONSTANTS
 BG_BLACK  = 16
