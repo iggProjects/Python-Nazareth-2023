@@ -24,17 +24,6 @@ def Y_N(msg):
     else:
         Y_N(msg)
 
-def Y_N_2(msg):   
-    #global Y_N_answer     
-    Y_N=str(input(f"\n {msg} "))    
-    if Y_N == 'Y':
-      print(f"\t\t if - Answer -> {Y_N}\n")                          
-      return 'Y'
-    elif Y_N == 'N':
-      return 'N'
-    else:
-        print(f"\t\t if - Answer -> {Y_N}\n")                         
-        Y_N_2(msg)
 
 #
 # ---------- MAIN ----------
