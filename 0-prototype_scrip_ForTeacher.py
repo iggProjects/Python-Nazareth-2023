@@ -20,13 +20,13 @@ FR_RED   = "\033[91m"
 
 # Yes-No function
 def Y_N(msg):
-    global moreData
+    #global moreData
     print()    
     ans=str(input(msg))    
     if ans == 'N':                        
-        moreData=False
+        return False
     elif ans == 'Y':                                
-        moreData=True
+        return True
     else:
         Y_N(msg)
 
@@ -89,8 +89,8 @@ if __name__ == "__main__":
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
-    moreData=False
-    Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
+    moreData = False
+    moreData = Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
 
     if moreData:    
         obj='HOLA'    # for example

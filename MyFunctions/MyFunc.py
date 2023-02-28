@@ -84,18 +84,18 @@ def pause():
 # DECISIONS FUNCTIONS
 #        
 
-"""
+
 # Check why not works with import model
-def Y_N(flag,msg):    
+def Y_N(msg):    
     print()    
     ans=str(input(msg))    
     if ans == 'N':                        
-        flag=False
+        return False
     elif ans == 'Y':                                
-        flag=True
+        return True
     else:
         Y_N(msg)
-"""
+
 
 #
 # PRINT VARS 
