@@ -6,20 +6,18 @@
 # https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
 #
 
-## If zFunctions is in the directory
-#from zFunctions import mostrar, ver_objetos
-##
 
 ## calling zFunctions from its folder
 ## Create file __init__.py empty in that folder - is for read dir
 
 import sys
 # caution: path[0] is reserved for script path (or '' in REPL)
-sys.path.insert(0, '\ML_Project\Python-igg\Modulo-2-Sgf\igg\MyFunctions')
-from zFunctions import *
-#from zFunctions import mostrar, ver_objetos
+#sys.path.insert(0, '\ML_Project\Python-igg\Modulo-2-Sgf\igg\MyFunctions')
+from MyFunc import *
+from Colors_out import *
 
-##
+"""
+
 
 def Purple(mens): print("\033[95m{}\033[00m\n" .format(mens)) 
 def Yellow(mens): print("\033[93m{}\033[00m\n" .format(mens)) 
@@ -35,9 +33,10 @@ def prPurple(skk): print("\033[95m{}\033[00m" .format(skk))
 def prCyan(skk): print("\033[96m{}\033[00m" .format(skk)) 
 def prLightGray(skk): print("\033[97m{}\033[00m" .format(skk)) 
 def prBlack(skk): print("\033[98m{}\033[00m" .format(skk)) 
+"""
 
 # type Cadena
-Purple('type string')
+prPurple('type string')
 var1='Hola Inaki'
 mostrar(var1)
 variable="Epale Gainzarain, que estas haciendo?"
