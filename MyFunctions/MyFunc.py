@@ -75,8 +75,7 @@ def prBG_orange(msg):
 #
 
 # pause function
-def pause():
-  print()
+def pause():  
   userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
         
 
