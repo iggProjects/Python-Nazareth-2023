@@ -9,6 +9,7 @@
    - use HELP function
    - write in log files, like "comments log", "errors log"
    - OS most used functions
+   - MODULES info
 
 """
 #
@@ -41,6 +42,8 @@ FG_BLACK        = 98
 
 # FOREGORUND CONSTANTS AS TEXT
 FG_WH_TXT = "\033[00m"
+FR_GREEN = "\033[92m"
+FR_RED   = "\033[91m"
 NO_COLOR = "\033[00m"
 
 # BACKGROUND CONSTANTS
@@ -73,26 +76,27 @@ def prBG_orange(msg):
 
 # pause function
 def pause():
-	userInput = input('Press ENTER to continue, or CTRL-C to exit\n')  
+  print()
+  userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
         
 
 #
 # DECISIONS FUNCTIONS
-#         
+#        
 
 """
-def Y_N(msg):   
-    global Y_N_answer     
-    Y_N_answer=str(input(f"\n {msg} "))    
-    if Y_N_answer == 'Y':
-      print(f"\t\t if - Answer -> {Y_N_answer}\n")                          
-      return 'Y'
-    elif Y_N_answer == 'N':
-      return 'N'
+# Check why not works with import model
+def Y_N(flag,msg):    
+    print()    
+    ans=str(input(msg))    
+    if ans == 'N':                        
+        flag=False
+    elif ans == 'Y':                                
+        flag=True
     else:
-        print(f"\t\t if - Answer -> {Y_N_answer}\n")                         
         Y_N(msg)
-"""        
+"""
+
 #
 # PRINT VARS 
 #
@@ -100,10 +104,7 @@ def Y_N(msg):
 # print 'lists-tuples' in matrix form
 def matrix_view(obj_l_t,n_cols):
   if 'list' in str(type(obj_l_t)) or 'tuple' in str(type(obj_l_t)):  # cambiar la pregunta
-  #if type(obj_l_t) in ['list','tuple']:  # cambiar la pregunta
     import math
-    # checking if obj_list is type 'list-tuple'
-    # if ():  
     matrix_rows=math.ceil(len(obj_l_t)/n_cols)
     lines=[]
     line=[]
@@ -113,10 +114,21 @@ def matrix_view(obj_l_t,n_cols):
         if i*n_cols+j<len(obj_l_t):
           line.append(obj_l_t[i*n_cols+j])
       print(f"line: {i+1} --> {line}")
-      #print(f"line: {i+1} --> {line}\n")
       line=[]  
   else:
-    print(frRED(f"\nWarning: Object '{obj_l_t}' in not  list neither tupla !\n" )) 
+    print(frRED(f"\nWarning FROM matrix_view(): Object '{obj_l_t}' in not  list neither tupla !\n" )) 
+
+#
+# SHOW LIBRARY INFO
+#
+
+# List Library Methods
+# search name of module to abbreviate the print info
+def library_methods(my_lib):
+  for method in dir(my_lib):
+    LIB_method  = method
+    print(f"{FR_GREEN}{str(my_lib)}.method --> {NO_COLOR}´{LIB_method}")
+  print()  
 
 #
 # SHOW OBJECTS INFO

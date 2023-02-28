@@ -13,11 +13,9 @@ import MyFunctions.Colors_out as Col
 NO_COLOR = "\033[00m"
 FR_GREEN = "\033[92m"
 
-# IMPORT CONSTANTS
-
-# 
-#from os import walk
-import os
+#
+# EXCERCISE CODE
+#
 
 print(f"\n------------------------------------------------\n")
 myPath = os.getcwd()
