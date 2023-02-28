@@ -12,19 +12,9 @@ FR_GREEN = "\033[92m"
 FR_RED   = "\033[91m"
 
 # FUNCIONS SECTION
-"""
-# Yes-No function
-def Y_N(msg):
-    global moreData    
-    ans=str(input(msg))
-    #print(f"\t\tAnswer -> {ans}\n")  
-    if ans == 'N':                        
-        moreData=False
-    elif ans == 'Y':                                
-        moreData=True
-    else:
-        Y_N(msg)
-"""
+
+
+
 #
 # ---------- MAIN ----------
 #
@@ -42,11 +32,7 @@ if __name__ == "__main__":
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
     moreData=False
-
-    #MyFunc.Y_N(moreData,"Do you want to see vars characteristics? (Y,N): ")
-
     moreData=MyFunc.Y_N("Do you want to see vars characteristics? (Y,N): ")
-    print(f"---- MAIN --- answer --> {moreData}\n")
     
     if moreData:    
         obj='HOLA'    # for example

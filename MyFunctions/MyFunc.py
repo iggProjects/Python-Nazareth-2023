@@ -86,8 +86,7 @@ def pause():
 
 
 # Check why not works with import model
-def Y_N(msg):    
-    print()    
+def Y_N(msg):  
     ans=str(input(msg))    
     if ans == 'N':                        
         return False
