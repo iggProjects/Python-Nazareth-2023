@@ -80,7 +80,48 @@ if __name__ == "__main__":
     print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
     pause()
 
-    # my code
+    #
+    # MY CODE
+    #
+
+    # read file "agatha.txt"
+    f = open("agatha.txt","r")
+    #f = open(agatha.txt,"r")
+    lines = f.readlines()
+
+    # save info in list of lines "agathaLines"
+    agathaLines=[]
+    for line in lines:
+        agathaLines.append(line)
+
+    f.close()
+
+    # create file copy agathaBkup.txt
+    fBkup = open("agathaBackup.txt", "w")
+
+    # write list in copy file
+    for line in agathaLines:
+        fBkup.write(line)
+
+    print(fBkup.name)  
+
+    fBkup.close()
+
+    # reading backup file
+    f = open("agathaBackup.txt","r")
+    print(f"\n\033[91mprinting bakup file: {f.name}\033[00m\n")
+
+    # read lines
+    lines = f.readlines()
+
+    # print lines of backup file
+    print("\033[34m")
+    for line in lines:  
+        print(f"\t{line}")
+
+    f.close()
+    # return default color 
+    print("\033[00m)")
 
 
     
@@ -89,7 +130,7 @@ if __name__ == "__main__":
     #------------------------------------------------ 
     moreData = False
     print()
-    moreData = Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
+    # moreData = Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
 
     if moreData:    
         obj='HOLA'    # for example
