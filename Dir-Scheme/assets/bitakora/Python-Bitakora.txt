@@ -1,1 +1,57 @@
-Bitakora
+BITAKORA
+
+Puntos pendientes
+
+MyFunc
+   - see objects types, methods and attributes,   - 
+   - time functions like pause, ......  
+   - printing colors options
+   - decisions functions
+   - HELP functions
+   - write in log files, like "comments log", "errors log"
+   - OS. SYS most used methods
+   - MODULES info
+   - Functions for Working with files 
+
+PROTOTIPOS
+    - mío: sacar las funciones internas y dejarlas en el IMPORT correspondiente (MyFunctions .MyFunc .Colors)
+    - ForTeacher: crear versión de MyFunc_FT y Colors_FT para que T las use en el folder que él elija, 
+                  y así pueda ejecutar el ejercicio FT enviado
+
+TEMA IMPORT desde folders paralelos:
+    - evaluar si es correcto agregar al PATH todos los directorios con "my own functions", y verificar que cuando
+              se invoca la función X, ésta funciona
+    - Evaluar si funciona que en el mismo directorio donde está MyFunc se pueda invocar Colors    
+
+
+
+
+Plantear proyecto API REST
+
+Crear DB en el XAMPP del curso, y probar mySQLshell
+    - employees: 
+        - https://github.com/datacharmer/test_db
+        - https://dev.mysql.com/doc/employee/en/employees-installation.html
+        - https://www.youtube.com/watch?v=-ksz8J6FQ0A
+
+
+PROYECTO ENIGMA
+    - Preparar corridas con hilos para proyecto ENIGMA rotation
+        - revisar trabajo hecho con Life Game
+        - 
+
+    - Preparar corridas con hilos para proyecto ENIGMA random
+
+REPASO FINAL Y PAG WEB
+    - Fijar fecha para hacer revisión total del Dcto Python del ForTeacher
+        - Conceptos y los ejercicios
+        - enviroments: google colaboratory, VSC in cloud, 
+
+    - Montar página web del curso (en flasK?), sencilla, con los materiales, ejercicios y lista de links interesantes
+        - usar github para ello
+        - https://www.netsolutions.com/insights/top-10-python-frameworks-for-web-development-in-2019/
+        - https://www.monocubed.com/blog/top-python-frameworks/
+        - https://hackr.io/blog/python-frameworks
+
+
+PUNTOS RESUELTOS
