@@ -103,13 +103,11 @@ if __name__ == "__main__":
     for line in agathaLines:
         fBkup.write(line)
 
-    print(fBkup.name)  
-
     fBkup.close()
 
     # reading backup file
     f = open("agathaBackup.txt","r")
-    print(f"\n\033[91mprinting bakup file: {f.name}\033[00m\n")
+    print(f"\n\033[91mprinting bakup file:\033[00m {f.name}\n")
 
     # read lines
     lines = f.readlines()
@@ -121,7 +119,7 @@ if __name__ == "__main__":
 
     f.close()
     # return default color 
-    print("\033[00m)")
+    print("\033[00m")
 
 
     
