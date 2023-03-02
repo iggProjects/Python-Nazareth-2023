@@ -18,12 +18,6 @@
 
 import random
 
-"""
-import Colors_in as Colors
-   IMPORT CONFLICT -->  PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
-
-"""
-
 #
 # COLORS CONSTANTS
 #
@@ -55,22 +49,6 @@ BG_BLUE   = 17
 BG_RED    = 124
 BG_ORANGE = 165
 
-#
-# COLOR PRINT FUNCTIONS
-#
-# foreground
-def prFG(msg,col):
-    col1 = str(col)
-    return print(("\033[" + col1 + "m " + msg + " \033[0;0m\n"))
-
-# background
-def prBG(msg,col):
-    col1 = str(col)
-    return print(("\033[48;5;" + col1 + "m " + msg + " \033[0;0m\n"))
-    #return(f"\033[48;5;{col1}m {col1} \033[0;0m\n".format(msg))
-
-def prBG_orange(msg): 
-    return print(("\033[48;2;255;165;0m {} \033[0;0m".format(msg)))
 
 
 #
@@ -122,13 +100,12 @@ def Y_N_1(bool_var,msg):
         Y_N(msg)
 
 def Y_N_2(msg):
-    ans = str(input(msg))
-    print(" answ: " + ans)  
-    return ans    
-
+    #ans = str(input(msg))    
+    #return ans    
+    return str(input(msg))
 
 #
-# PRINT VARS 
+# PRINT OBJECT INFO 
 #
 
 # print 'lists-tuples' in matrix form
@@ -180,7 +157,7 @@ def mostrar(obj):
   print(f"Object assigned attributes and methods are:\n")
   matrix_view(attr_meth,8)
   print()
-  prBG("-----------------END MOSTRAR OBJECT TYPE AND ATTRIB-METHODS-----------------",17)    
+  print(f"{FR_GREEN}-----------------END MOSTRAR OBJECT TYPE AND ATTRIB-METHODS-----------------{NO_COLOR}",17)    
   print()
   
 # Show elements looking at dir(obj)
