@@ -4,7 +4,7 @@ THIS SCRIPT IS FOR..................
 """
 # IMPORT SECTION
 import MyFunctions.MyFunc as MyFunc
-import MyFunctions.Colors_out as Col
+import MyFunctions.Colors as Col
 
 # CONSTANT SECTION
 NO_COLOR = "\033[00m"

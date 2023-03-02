@@ -78,6 +78,10 @@ def prBG_orange(msg):
 def pause():  
   userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
         
+# test return
+def return_5():
+  return 5
+
 
 #
 # DECISIONS FUNCTIONS
@@ -94,6 +98,16 @@ def Y_N(msg):
     else:
         Y_N(msg)
 
+def Y_N_1(bool_var,msg):       
+    ans=str(input(msg))    
+    if ans == 'N':                        
+        bool_var = False
+        return bool_var        
+    elif ans == 'Y':                                
+        bool_var = True
+        return bool_var
+    else:
+        Y_N(msg)
 
 #
 # PRINT VARS 

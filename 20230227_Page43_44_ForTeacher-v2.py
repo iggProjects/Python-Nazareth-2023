@@ -1,14 +1,15 @@
+
 """  
 THIS SCRIPT IS FOR..................
 
 """
 # IMPORT SECTION
 import MyFunctions.MyFunc as MyFunc
-import MyFunctions.Colors_out as Col
+import MyFunctions.Colors as Col
 
 # FUNCIONS SECTION
 
-# Yes-No function
+"""# Yes-No function
 def Y_N(msg):
     global moreData    
     ans=str(input(msg))
@@ -19,7 +20,7 @@ def Y_N(msg):
         moreData=True
     else:
         Y_N(msg)
-
+"""
 #
 # ---------- MAIN ----------
 #
@@ -29,17 +30,22 @@ if __name__ == "__main__":
 
     # your code
 
+    # test return statement
+    print(f"MyFunc.return_5() --> {MyFunc.return_5()}\n")
 
-  
+    result = MyFunc.return_5()
+    print(f"result --> {result}\n")
+
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
     #Y_N_answer='N'
     #Y_N_answer=Y_N_2("Do you want to see vars characteristics? (Y,N): ")
     #Y_N_answer=MyFunc.Y_N("Do you want to see vars characteristics? (Y,N): ")
-    moreData=False
-    Y_N("Do you want to see vars characteristics? (Y,N): ")
-    print(f"---- MAIN --- answer --> {moreData}\n")
+    moreData=False    
+    #moreData = MyFunc.Y_N("Do you want to see vars characteristics? (Y,N): ")
+    #MyFunc.Y_N_1(moreData,"Do you want to see vars characteristics? (Y,N): ")
+    #print(f"---- MAIN --- answer --> {moreData}\n")
     
     if moreData:
     #if Y_N_answer == 'Y':
