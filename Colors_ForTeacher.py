@@ -15,6 +15,12 @@ FG_LIGHT_GRAY   = 97
 FG_BLUE         = 34   # ???
 FG_BLACK        = 98
 
+NO_COLOR = "\033[00m"
+FR_GREEN = "\033[92m"
+FR_RED   = "\033[91m"
+FR_BLUE  = "\033[34m"
+
+
 # BACKGROUND CONSTANTS
 BG_BLACK  = 16
 BG_BLUE   = 17

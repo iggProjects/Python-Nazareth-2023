@@ -1,24 +1,31 @@
 """  
-THIS SCRIPT IS FOR..................
+1.- This code is to pass the exercises to the teacher
+2.- The SCRIPT is for:
+    2.1.-
+    2-2.-
+    .
+    .
+
 
 """
 #
 # IMPORT SECTION
 #
-#import MyFunctions.MyFunc as MyFunc
-#import MyFunctions.Colors_out as Col
-import math
+from MyFunc_ForTeacher import *
+from Colors_ForTeacher import *
+from math import ceil
 
-# CONSTANT SECTION
-NO_COLOR = "\033[00m"
-FR_GREEN = "\033[92m"
-FR_RED   = "\033[91m"
-
-#
-# FUNCTIONS SECTION
-#
-
-# Yes-No function
+# Y-N function
+"""
+def Y_N(msg):       
+    ans=str(input(msg))    
+    if ans == 'Y':
+        return 'Y'
+    elif ans == 'N':
+        return 'N'        
+    else:
+        Y_N(msg)
+"""
 def Y_N(msg):
     ans=str(input(msg))    
     if ans == 'N':                        
@@ -28,49 +35,6 @@ def Y_N(msg):
     else:
         Y_N(msg)
 
-# pause function
-def pause():  
-  userInput = input(f"\n{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
-
-# Show attributes and methods avalaible for "obj"
-def mostrar(obj):      
-
-  if type(obj) in ['list','dict']:
-    print(f"Object elements view in matrix form (8 columns by row)\n")
-    matrix_view(obj,8)
-
-  # obj type and mem dir
-  print(f"Object type is {type(obj)} and mem dir is: {id(obj)}\n")
-  # obj attributes
-  # attributes = [attr for attr in dir(obj) if not attr.startswith('__')]
-  attr_meth = [attr for attr in dir(obj)]
-  # print attributes and methods in matrix form
-  print(f"Object assigned attributes and methods are:\n")
-  matrix_view(attr_meth,8)
-  print()
-
-# print 'lists-tuples' in matrix form
-def matrix_view(obj_l_t,n_cols):
-  if 'list' in str(type(obj_l_t)) or 'tuple' in str(type(obj_l_t)):      
-    matrix_rows=math.ceil(len(obj_l_t)/n_cols)
-    lines=[]
-    line=[]
-    i=0
-    for i in  range(matrix_rows):    
-      for j in range(n_cols):
-        if i*n_cols+j<len(obj_l_t):
-          line.append(obj_l_t[i*n_cols+j])
-      print(f"line: {i+1} --> {line}")
-      #print(f"line: {i+1} --> {line}\n")
-      line=[]  
-  else:
-    print(f"\n{FR_RED}Warning FROM matrix_view(): Object '{obj_l_t}' in not  list neither tupla !{NO_COLOR}\n" ) 
-
-# List Library Methods
-def library_methods(my_lib):
-  for method in dir(my_lib):
-    LIB_method  = method
-    print(f"{FR_GREEN}{str(my_lib)}.method --> {NO_COLOR}´{LIB_method}")
 
 #
 # ---------- COURSE EXCERCISES ----------
@@ -89,7 +53,9 @@ if __name__ == "__main__":
     #------------------------------------------------ 
     moreData = False
     print()
+    print(f"moreData before: {moreData}")
     moreData = Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
+    print(f"moreData after: {moreData}")
 
     if moreData:    
         obj='HOLA'    # for example

@@ -134,7 +134,7 @@ if __name__ == "__main__":
     if moreData:    
         obj='HOLA'    # for example
         print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{obj}' ----------{NO_COLOR}\n")
-        pause()
+        MyFunc.pause()
         # my objects functions  
         MyFunc.mostrar(obj)       
     else:
