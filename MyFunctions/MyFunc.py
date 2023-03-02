@@ -15,6 +15,9 @@
 #
 # IMPORT LIBRERIES OR YOUR OWN FUNCTIONS 
 #
+
+import random
+
 """
 import Colors_in as Colors
    IMPORT CONFLICT -->  PROBLEM WHEN IS CALLED TWICE: ROOT DIR AND MYFUNCT DIR
@@ -79,8 +82,17 @@ def pause():
   userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
         
 # test return
-def return_5():
-  return 5
+def return_5():  
+  list=[1,2,3,4,5]  
+  my_value = random.choice(list)
+  #print("my_value: " + my_value)
+  if my_value == 5:    
+    return print(f"my_value: {my_value}")
+    #return eval(str(my_value))
+    #return my_value
+       
+  else:
+    return_5()
 
 
 #
@@ -108,6 +120,12 @@ def Y_N_1(bool_var,msg):
         return bool_var
     else:
         Y_N(msg)
+
+def Y_N_2(msg):
+    ans = str(input(msg))
+    print(" answ: " + ans)  
+    return ans    
+
 
 #
 # PRINT VARS 
