@@ -27,11 +27,12 @@ def Y_N(msg):
         Y_N(msg)
 """
 def Y_N(msg):
+    ans='N'
     ans=str(input(msg))    
-    if ans == 'N':                        
-        return False
-    elif ans == 'Y':                                
+    if ans == 'Y':                        
         return True
+    elif ans == 'N':                                
+        return False
     else:
         Y_N(msg)
 
@@ -54,7 +55,9 @@ if __name__ == "__main__":
     moreData = False
     print()
     print(f"moreData before: {moreData}")
-    moreData = Y_N("Do you want to see vars characteristics? (Y,N): ")  # if answ is 'Y' -> moreData=True
+    moreData=Y_N("Do you want to see vars characteristics? (Y,N):")  # if answ is 'Y' -> moreData=True
+    eval_value = str(eval(Y_N("Do you want to see vars characteristics? (Y,N):")))
+    print(f"{eval_value}")
     print(f"moreData after: {moreData}")
 
     if moreData:    
