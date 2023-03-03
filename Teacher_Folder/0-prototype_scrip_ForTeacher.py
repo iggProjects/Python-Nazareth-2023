@@ -15,7 +15,7 @@ from Colors_ForTeacher import *
 from math import ceil
 
 #
-# ---------- COURSE EXCERCISES ----------
+# ---------- COURSE EXCERCISE ----------
 #
 
 if __name__ == "__main__":
@@ -24,12 +24,10 @@ if __name__ == "__main__":
 
     # my code
 
-    _someVar = [1,2,3,5]
     
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
-    
     yesss=True   
     while yesss:
         _msg = "Do you want to see attributes for a specific VAR ? (Y,N): "
@@ -50,7 +48,6 @@ if __name__ == "__main__":
         except NameError:
             print(f"\n\t{FR_RED}---- Var '{_what_var}' doesn't exits 🙄🙄  ----")
             print(f"\n{FR_GREEN}--------------- That's all for today 👌 ---------------{NO_COLOR}\n")
-            #_my_Obj_name = None 
 
     else:
         print(f"\n{FR_GREEN}---------- That's all for today 👌 ----------{NO_COLOR}\n")

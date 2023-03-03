@@ -2,8 +2,9 @@
 
 # IMPORT
 import re   
-import Colors_ForTeacher as Col
-import MyFunc_ForTeacher as MyFunc
+from MyFunc_ForTeacher import *
+from Colors_ForTeacher import *
+from math import ceil
 
 # Y,N answer function
 def Y_N():
@@ -21,19 +22,19 @@ def Y_N():
 def input_worker_age():
     global moreData,workers,worker    
     try:
-        worker_age=int(input(Col.frRED("\nPlease indicate \"age\" (integer between 18-65): ")))
+        worker_age=int(input(frRED("\nPlease indicate \"age\" (integer between 18-65): ")))
         if worker_age in range(18,65):
-            print(Col.frRED(f"\t\tage entered -> {worker_age}")) # next version: redirect a log file for answer
+            print(frRED(f"\t\tage entered -> {worker_age}")) # next version: redirect a log file for answer
             # DB code or use var type dictionary to print data session
             worker["age"] = worker_age
             workers.append(worker)
             # ask for continue (Y,N)
             Y_N()
         else:
-            Col.frRED("\nPlease indicate \"age\" (integer between 18-65): ") 
+            frRED("\nPlease indicate \"age\" (integer between 18-65): ") 
             input_worker_age()    
     except ValueError:
-        Col.frRED("\nPlease indicate \"age\" (integer between 18-65): ")
+        frRED("\nPlease indicate \"age\" (integer between 18-65): ")
         #print('please indicate age (integer between 18-65)')
         input_worker_age()
 
@@ -43,17 +44,17 @@ def input_worker_data():
     # first try for worker name
     try:        
         #name_worker=str(input("\033[94mPlease enter your name: \033[00m"))               
-        worker_name = str(input(Col.frGREEN("Please enter your name: ")))     
+        worker_name = str(input(frGREEN("Please enter your name: ")))     
         # check characters
         if re.match("^[A-Za-zñáéíóúü]*$", worker_name):      
-            print(Col.frGREEN(f"\t\tname -> {worker_name}"))  # next version: redirect a log file for answer
+            print(frGREEN(f"\t\tname -> {worker_name}"))  # next version: redirect a log file for answer
             # code to update DB or create a list with data type dictionary            
             worker["name"] = worker_name
             # call age funtion
             input_worker_age()            
     except ValueError:
         # print('Please enter your name')
-        Col.frGREEN("Please enter your name: ")
+        frGREEN("Please enter your name: ")
         input_worker_data()
 
 # MAIN
@@ -75,13 +76,36 @@ if __name__ == "__main__":
         for key,value in workers[i].items():
             print(f"\t\t{key}: {value}")
 
-    # SHOW VARS CHARACTERISTICS 
-    print((Col.frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
-    MyFunc.pause()
-    MyFunc.mostrar(workers)
-    MyFunc.desc_obj_method(workers)    
+    # ------------------------------------------------
+    #          SHOW VARS CHARACTERISTICS 
+    #------------------------------------------------ 
+
+    yesss=True   
+    while yesss:
+        _msg = "Do you want to see attributes for a specific VAR ? (Y,N): "
+        answer=Y_N_2(_msg)        
+        if answer in ['Y','N']: yesss = False
+
+    if answer == 'Y':            
+        # add question for name of var.....
+        _what_var = str(input("What VAR ? "))
+        try: 
+            _what_var
+            _my_Obj_name = eval(_what_var)
+            print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{_my_Obj_name}' ----------{NO_COLOR}\n")
+            pause()
+            # my objects functions  
+            mostrar(_my_Obj_name)       
+
+        except NameError:
+            print(f"\n\t{FR_RED}---- Var '{_what_var}' doesn't exits 🙄🙄  ----")
+            print(f"\n{FR_GREEN}--------------- That's all for today 👌 ---------------{NO_COLOR}\n")
+            #_my_Obj_name = None 
+
+    else:
+        print(f"\n{FR_GREEN}---------- That's all for today 👌 ----------{NO_COLOR}\n")
 
 else:
     # something wrong
-    print(f"upsssssssss")
-
+    print(f"\n{FR_RED}---- upsssssssss something is wrong 😢😢  ---{NO_COLOR}\n")
+    pause()

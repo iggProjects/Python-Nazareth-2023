@@ -1,7 +1,7 @@
 # teacher example
 
 # IMPORT FUNCTIONS
-from MyFunctions.MyFunc import pause
+from MyFunc_ForTeacher import pause
 
 texto = "programazioa gustatzen zait"
 

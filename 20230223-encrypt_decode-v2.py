@@ -73,7 +73,7 @@ if __name__ == "__main__":
     keyDict = dict(zip(old_alphab,list_ascii_assoc))
     print(Col.frGREEN(f"keyDict (+10) 👇👇\n\n{keyDict}\n")) 
     # find key,value 
-    print(Col.frGREEN(f"list of keys\033[00m 👇👇\n{keyDict.keys()}\n\n\033[92mlist of values\033[00m 👇👇\n{keyDict.values()}\n"))
+   
     """
 
     # reverse values of list_ascii_assoc

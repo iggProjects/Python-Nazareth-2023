@@ -29,7 +29,7 @@ print(f"\f{FR_GREEN}platform._Processor --> {NO_COLOR}´{platform._Processor()}\
 # loop to present all methods-attributes of each
 OS = dir(os)
 MyFunc.matrix_view(OS,3)
-
+MyFunc.pause()
 PLATFORM = dir(platform)
 MyFunc.matrix_view(PLATFORM,3)
 

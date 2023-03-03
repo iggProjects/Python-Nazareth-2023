@@ -3,34 +3,8 @@ THIS SCRIPT IS FOR..................
 
 """
 # IMPORT SECTION
-#import MyFunctions.MyFunc as MyFunc
-#import MyFunctions.Colors_out as Col
-
-# CONSTANT SECTION
-
-
-# FUNCIONS SECTION
-
-# pause function
-def pause():
-	userInput = input('Press ENTER to continue, or CTRL-C to exit\n')  
-
-# COLORS FUNTIONS
-def frGREEN(msg):  return f"\033[92m{msg} \033[00m"   # green
-def frRED(msg):  return f"\033[91m{msg} \033[00m"   # red
-
-
-# Yes-No function
-def Y_N(msg):
-    global moreData    
-    ans=str(input(msg))
-    print(f"\t\tAnswer -> {ans}\n")  
-    if ans == 'N':                        
-        moreData=False
-    elif ans == 'Y':                                
-        moreData=True
-    else:
-        Y_N(msg)
+from MyFunc_ForTeacher import *
+from Colors_ForTeacher import *
 
 # print char by char
 def print_char_by_char(my_text):
@@ -62,12 +36,13 @@ def desc_obj_method(obj,todo=True):
     no_color = '\033[0m'
     descripcion = ''
     ver = ''
-    print(si_color + 'TIPO: ' + no_color + str(type(obj)) + '\n')
-    print(si_color + 'DOC: ' + no_color + type(obj).__doc__ + '\n')
+    #print(si_color + 'TIPO: ' + no_color + str(type(obj)) + '\n')
+    #print(si_color + 'DOC: ' + no_color + type(obj).__doc__ + '\n')
     
-    obj_method = str(input(frRED(f"what method of object '{obj}' you want to see?" )))
+    obj_method = str(input(frRED(f"what method of object '{obj}' you want to see?\n")))
+    
     #obj_method = str(input(Colors.frRED(f"what method of object '{obj}' you want to see?" )))
-    print()
+    
     #obj_method = str(input(f"what method of object '{obj}' you want to see? "))
     #print(Colors.frGREEN(f"\n\tobj method selected --> '{obj_method}'\n"))
 
@@ -144,18 +119,30 @@ if __name__ == "__main__":
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
     
-    moreData=False
-    Y_N("Do you want to see vars characteristics? (Y,N): ")
-    print(f"---- MAIN --- answer --> {moreData}\n")
-    
-    if moreData:
-    #if Y_N_answer == 'Y':
-        obj=my_text  # for example
-        print((frGREEN("\n---------- VARS CHARACTERISTICS ----------\n")))
-        pause()        
-        desc_obj_method(obj)  
+    yesss=True   
+    while yesss:
+        _msg = "Do you want to see attributes for a specific VAR ? (Y,N): "
+        answer=Y_N_2(_msg)        
+        if answer in ['Y','N']: yesss = False
+
+    if answer == 'Y':            
+        # add question for name of var.....
+        _what_var = str(input("What VAR ? "))
+        try: 
+            _what_var
+            _my_Obj_name = eval(_what_var)
+            print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{_my_Obj_name}' ----------{NO_COLOR}\n")
+            pause()
+            # my objects functions  
+            mostrar(_my_Obj_name)       
+
+        except NameError:
+            print(f"\n\t{FR_RED}---- Var '{_what_var}' doesn't exits 🙄🙄  ----")
+            print(f"\n{FR_GREEN}--------------- That's all for today 👌 ---------------{NO_COLOR}\n")
+            #_my_Obj_name = None 
+
     else:
-        print((frGREEN("\n---------- That's all for today 👌 ----------")))
+        print(f"\n{FR_GREEN}---------- That's all for today 👌 ----------{NO_COLOR}\n")
 
 else:
     # something wrong
