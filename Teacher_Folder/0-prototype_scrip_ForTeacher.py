@@ -35,8 +35,8 @@ if __name__ == "__main__":
         _msg = "Do you want to see attributes for a specific VAR ? (Y,N): "
         answer=Y_N_2(_msg)        
         # add question for name of var.....
-        #_my_Obj_name = _msg
-        _my_Obj_name = _someVar
+        _what_var = str(input("What VAR?"))
+        _my_Obj_name = eval(_what_var)
         if answer in ['Y','N']: yesss = False
 
     if answer == 'Y':            
