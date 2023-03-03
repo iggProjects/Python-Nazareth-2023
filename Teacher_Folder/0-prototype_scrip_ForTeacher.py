@@ -6,7 +6,6 @@
     .
     .
 
-
 """
 #
 # IMPORT SECTION
@@ -14,28 +13,6 @@
 from MyFunc_ForTeacher import *
 from Colors_ForTeacher import *
 from math import ceil
-
-# Y-N function
-"""
-def Y_N(msg):       
-    ans=str(input(msg))    
-    if ans == 'Y':
-        return 'Y'
-    elif ans == 'N':
-        return 'N'        
-    else:
-        Y_N(msg)
-"""
-def Y_N(msg):
-    ans='N'
-    ans=str(input(msg))    
-    if ans == 'Y':                        
-        return True
-    elif ans == 'N':                                
-        return False
-    else:
-        Y_N(msg)
-
 
 #
 # ---------- COURSE EXCERCISES ----------
@@ -47,25 +24,26 @@ if __name__ == "__main__":
 
     # my code
 
-
+    _someVar = [1,2,3,5]
     
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
     #------------------------------------------------ 
-    moreData = False
-    print()
-    print(f"moreData before: {moreData}")
-    moreData=Y_N("Do you want to see vars characteristics? (Y,N):")  # if answ is 'Y' -> moreData=True
-    eval_value = str(eval(Y_N("Do you want to see vars characteristics? (Y,N):")))
-    print(f"{eval_value}")
-    print(f"moreData after: {moreData}")
+    
+    yesss=True   
+    while yesss:
+        _msg = "Do you want to see attributes for a specific VAR ? (Y,N): "
+        answer=Y_N_2(_msg)        
+        # add question for name of var.....
+        #_my_Obj_name = _msg
+        _my_Obj_name = _someVar
+        if answer in ['Y','N']: yesss = False
 
-    if moreData:    
-        obj='HOLA'    # for example
-        print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{obj}' ----------{NO_COLOR}\n")
+    if answer == 'Y':            
+        print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{_my_Obj_name}' ----------{NO_COLOR}\n")
         pause()
         # my objects functions  
-        mostrar(obj)       
+        mostrar(_my_Obj_name)       
     else:
         print(f"\n{FR_GREEN}---------- That's all for today 👌 ----------{NO_COLOR}\n")
 

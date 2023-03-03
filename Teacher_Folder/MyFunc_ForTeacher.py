@@ -41,8 +41,13 @@ def pause():
 # DECISIONS FUNCTIONS
 #        
 
-"""
-# Check why not works with import model
+def Y_N(msg):       
+    ans=str(input(msg))    
+    if ans == 'Y' or ans == 'N': 
+        return ans        
+    else:
+        Y_N(msg)
+
 def Y_N_1(msg):        
     ans=str(input(msg))    
     if ans == 'Y':         
@@ -52,14 +57,8 @@ def Y_N_1(msg):
     else:
         Y_N(msg)
 
-def Y_N(msg):       
-    ans=str(input(msg))    
-    if ans == 'Y' or ans == 'N': 
-        return ans        
-    else:
-        Y_N(msg)
-
-"""
+def Y_N_2(msg):
+    return str(input(msg))
 
 #
 # PRINT VARS 
