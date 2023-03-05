@@ -1,0 +1,15 @@
+FLASK
+
+links
+    https://www.tutorialspoint.com/flask/flask_variable_rules.htm
+    https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+    https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
+
+
+Install flask
+
+
+
+home 
+
+
