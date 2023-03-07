@@ -87,13 +87,13 @@ if __name__ == "__main__":
         def displayname(self):
             print("Hero:", self.__name, "\n")
 
-    obj = Superhero("Shaktiman")
+    myHeroe = Superhero("Shaktiman")
 
     # in this case, printing proceeds
-    obj.displayname()
+    myHeroe.displayname()
 
     # in this case, do not print
-    print(obj.__name)
+    print(myHeroe.__name)
 
 
     
