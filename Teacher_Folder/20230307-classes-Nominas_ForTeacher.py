@@ -1,6 +1,6 @@
 """  
 1.- This code is to pass the exercises to the teacher
-2.- Page 75
+2.- Page 75 (nominas example)
 """
 #
 # IMPORT SECTION
@@ -23,11 +23,10 @@ if __name__ == "__main__":
         def __init__(self, name, cargo, salario):
             self.name = name
             self.cargo = cargo
-            self.__salario = salario
-        
+            self.__salario = salario       
         def empleadoInfo(self):
             salary = '{:,.2f}'.format(self.__salario * 1.1).replace(',','.')
-            print("Empleado:", self.name, ", Cargo: ", self.cargo , ", Salario: ", salary, "\n")
+            print(f"{FR_BLUE}Empleado:", self.name, f"{NO_COLOR}\n\tCargo: ", self.cargo , ",\tSalario: ", salary, "\n")
 
     empleados = []
 
@@ -39,24 +38,20 @@ if __name__ == "__main__":
     empleados.append(Maria)
     empleados.append(Leo)
 
-
     # as it should be, it doesn't work if you call salario info from object
     """
     for empleado in self.empleados:
         empleado.salario
     """       
 
+    # sistema_nominas class
     class Sistema_nominas:
-
         def __init__(self,empleados):
             self.empleados=empleados
-
         def calcular_nominas(self):            
             print(f"{FR_GREEN}---- Calculando nominas de los empleados ----{NO_COLOR}\n")
             for empleado in self.empleados:
                 empleado.empleadoInfo()
-
-
 
     nominas = Sistema_nominas(empleados)
     nominas.calcular_nominas()
