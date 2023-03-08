@@ -1,10 +1,6 @@
 """  
 1.- This code is to pass the exercises to the teacher
-2.- The SCRIPT is for:
-    2.1.-
-    2-2.-
-    .
-    .
+2.- Page 72
 
 """
 #
@@ -32,7 +28,7 @@ if __name__ == "__main__":
 
         def __eq__(self,other):
             return self.name == other.name \
-                and self-mobile == other.mobile \
+                and self.mobile == other.mobile \
                     and self.age == other.age
 
         def __str__(self):
