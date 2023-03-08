@@ -26,7 +26,7 @@ if __name__ == "__main__":
             self.__salario = salario       
         def empleadoInfo(self):
             salary = '{:,.2f}'.format(self.__salario * 1.1).replace(',','.')
-            print(f"{FR_BLUE}Empleado:", self.name, f"{NO_COLOR}\n\tCargo: ", self.cargo , ",\tSalario: ", salary, "\n")
+            print(f"{FR_BLUE}Empleado:", self.name, f"{NO_COLOR}\n\tCargo: ", self.cargo, ",\tSalario: ", salary, "\n")
 
     empleados = []
 
@@ -52,6 +52,8 @@ if __name__ == "__main__":
             print(f"{FR_GREEN}---- Calculando nominas de los empleados ----{NO_COLOR}\n")
             for empleado in self.empleados:
                 empleado.empleadoInfo()
+            print(f"{FR_GREEN}---- fin del proceso ----{NO_COLOR}\n")
+    
 
     nominas = Sistema_nominas(empleados)
     nominas.calcular_nominas()
