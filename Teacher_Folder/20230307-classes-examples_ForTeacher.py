@@ -93,6 +93,7 @@ if __name__ == "__main__":
     myHeroe.displayname()
 
     # in this case, we will have an error
+    print(f"{FR_GREEN}in this case, we will have an error\n---- myHeroe.__name can't be invoked ----{NO_COLOR}\n")
     print(myHeroe.__name)
 
 
