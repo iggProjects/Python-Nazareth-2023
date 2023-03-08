@@ -70,7 +70,7 @@ if __name__ == "__main__":
     perros.append(jack)
     perros.append(jim)
 
-    print(f"perros list---> {perros}\n")
+    print(f"{FR_GREEN}perros list:{NO_COLOR}\n{perros}\n")
 
     for p in perros:
         print(f"El perro se llama {p.nombre} y es {p.raza}")
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # in this case, printing proceeds
     myHeroe.displayname()
 
-    # in this case, do not print
+    # in this case, we will have an error
     print(myHeroe.__name)
 
 

@@ -225,6 +225,19 @@ git log --all --decorate --oneline --graph
 #### Repositorios Remotos ####
 ####                      ####  
 
+# REMOTE ADD ORIGIN option (first time: from local to web repository)
+1.- git init in local project
+2.- check "user name and email" with git config --list
+3.- create .gitignore file, git add files, git commit -m "" ...
+4.- create repository in github (or any other...), and copy url
+5.- git remote add origin 'your_url_name'
+6.- git push -u origin master
+7.- check github (or any other service...)
+8.- check: git remote -v
+
+
+# CLONE option  (from web repository to local)
+
 # Clonamos el proyecto frutas desde gitlab.com
 git clone git@gitlab.com:jpelorat/frutas  # automáticamente se crea dir frutas 
 cd frutas
