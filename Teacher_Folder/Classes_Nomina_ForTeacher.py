@@ -1,5 +1,6 @@
 """
     Classes for "nomina system"
+
 """
 
 from MyFunc_ForTeacher import *
@@ -12,8 +13,7 @@ class SistemaNominas:
             nomina_emp = '{:,.2f}'.format(empleado.calculo_nomina()).replace(',','.')
             print(f"{FR_GREEN}\t{empleado.nombre} ({empleado.id}) | cargo '{empleado.cargo}'{NO_COLOR}\n\t\tpago: {nomina_emp}\n")            
 
-class Empleado:
-    #def __init__(self, id, nombre):
+class Empleado:    
     def __init__(self, id, nombre, año_ncto, dir_resid, cargo):
         self.id = id
         self.nombre = nombre

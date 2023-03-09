@@ -26,8 +26,8 @@ if __name__ == "__main__":
     Empleados_empresa.append(SalarioEmpleado(3, 'Pedro', '1965','Donosita','programador python',2000))  
 
     Comerciales_empresa = []
-    Comerciales_empresa.append(Comercial(4, 'Che','','','ventas empresas grandes',2500, 250,))
-    Comerciales_empresa.append(Comercial(5, 'Oihana','','','staff marketing',3500, 500))
+    Comerciales_empresa.append(Comercial(4, 'Che','1980','Bilbo','ventas empresas grandes',2500, 250,))
+    Comerciales_empresa.append(Comercial(5, 'Oihana','1985','New York','staff marketing',3500, 500))
 
     print(f'\n{FR_BLUE}======= Calculando Nómina General ========{NO_COLOR}\n')
     
