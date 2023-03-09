@@ -226,6 +226,15 @@ def ver_elementos(obj, todo=True):
 def help_obj_method(obj):
     print(help(type(obj)))    
 
+# checking related classes in a composite class 
+def relatedClasses(clas):   
+
+    print(f"\n----- analysis of {FR_BLUE}\"classes related\"{NO_COLOR} with class \"{FR_GREEN}{clas}{NO_COLOR}\" -----\n")
+    for clas_rel in clas.__mro__:
+        print(f"{FR_GREEN}\trelated clas --> {clas_rel}\n")
+    print(f"{NO_COLOR}----- end analysis -----\n")    
+
+
 def desc_obj_method(obj,todo=True):
     
     method_founded = False
