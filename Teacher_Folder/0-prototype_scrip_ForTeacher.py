@@ -10,15 +10,24 @@
 #
 # IMPORT SECTION
 #
+
+# cleaning shell with system('cls')
+from os import system 
+
+# my generic functions
 from MyFunc_ForTeacher import *
 from Colors_ForTeacher import *
-from math import ceil
 
 #
 # ---------- COURSE EXCERCISE ----------
 #
 
+
 if __name__ == "__main__":
+
+    # clean screen
+    system('cls')
+
     print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
     pause()
 

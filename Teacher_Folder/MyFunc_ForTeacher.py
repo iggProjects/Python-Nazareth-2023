@@ -36,7 +36,6 @@ NO_COLOR = "\033[00m"
 def pause():  
   userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")  
         
-
 #
 # DECISIONS FUNCTIONS
 #        
@@ -248,6 +247,15 @@ def desc_obj_method(obj,todo=True):
       print(frRED("\nthere is no such method 🙄\n"))
       #print(Colors.frRED("\nthere is no such method 🙄\n"))
 
+# checking related classes in a composite class 
+def relatedClasses(clas):   
+
+    print(f"\n----- analysis of {FR_BLUE}\"classes related\"{NO_COLOR} with class \"{FR_GREEN}{clas}{NO_COLOR}\" -----\n")
+    for clas_rel in clas.__mro__:
+        print(f"{FR_GREEN}\trelated clas --> {clas_rel}\n")
+    print(f"{NO_COLOR}----- end analysis -----\n")    
+
+
 #
 #  LOG FILES FUNCTIONS
 #
@@ -260,6 +268,7 @@ def write_comments_log():
 # redirect errors msg to 'own' errors log file
 def write_comments_log():
    print("here my errors log file")
+
 
     
 #

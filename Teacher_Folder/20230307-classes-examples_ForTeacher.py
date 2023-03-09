@@ -8,7 +8,6 @@
 #
 from MyFunc_ForTeacher import *
 from Colors_ForTeacher import *
-from math import ceil
 
 #
 # ---------- COURSE EXCERCISE ----------

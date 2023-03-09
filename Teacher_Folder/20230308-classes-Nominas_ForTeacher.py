@@ -1,55 +1,59 @@
 """  
-1.- This code is to pass the exercises to the teacher
-2.- Page 75 (nominas example)
+    1.- This code is to pass the exercises to the teacher
+    2.- Page 75 (nominas example)
+
 """
 #
 # IMPORT SECTION
 #
+
+# cleaning shell with system('cls')
+from os import system 
+
+# my generic functions
 from MyFunc_ForTeacher import *
 from Colors_ForTeacher import *
+
+# classes for this excercise
+from Classes_Nomina_ForTeacher import *
 
 #
 # ---------- COURSE EXCERCISE ----------
 #
 
 if __name__ == "__main__":
+    
+    # clean screen
+    system('cls')
+
     print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
     pause()
 
     # ------------------- Nominas excercise ------------------
 
-    class empleado:
-        def __init__(self, name, cargo, salario):
-            self.name = name
-            self.cargo = cargo
-            self.__salario = salario       
-        def empleadoInfo(self):
-            salary = '{:,.2f}'.format(self.__salario * 1.1).replace(',','.')
-            print(f"{FR_BLUE}Empleado:", self.name, f"{NO_COLOR}\n\tCargo: ", self.cargo, ",\tSalario: ", salary, "\n")
+    Empleados_empresa = []
+    Empleados_empresa.append(SalarioEmpleado(1, 'Iñaki','1959','Errenteria','programador html',1500))
+    Empleados_empresa.append(SalarioEmpleado(2, 'Xabier','1990','Donostia','programador java',1700))
+    Empleados_empresa.append(SalarioEmpleado(3, 'Pedro', '1965','Donosita','programador python',2000))  
 
-    empleados = []
+    Comerciales_empresa = []
+    Comerciales_empresa.append(Comercial(4, 'Che','1980','Bilbo','ventas empresas grandes',2500, 250,))
+    Comerciales_empresa.append(Comercial(5, 'Oihana','1985','New York','staff marketing',3500, 500))
 
-    Jon = empleado("Jon", "Programador python", 10000)
-    Maria = empleado("María", "Programador java", 12000)
-    Leo = empleado("Leo", "Programador HTML", 10000)
+    print(f'\n{FR_BLUE}======= Calculando Nómina General ========{NO_COLOR}\n')
     
-    empleados.append(Jon)
-    empleados.append(Maria)
-    empleados.append(Leo)
+    corrida_nomina = SistemaNominas()    
 
-    # sistema_nominas class
-    class Sistema_nominas:
-        def __init__(self,empleados):
-            self.empleados=empleados
-        def calcular_nominas(self):            
-            print(f"{FR_GREEN}---- Calculando nominas de los empleados ----{NO_COLOR}\n")
-            for empleado in self.empleados:
-                empleado.empleadoInfo()
-            print(f"{FR_GREEN}---- fin del proceso ----{NO_COLOR}\n")
+    print(f"\n\t{FR_BLUE}=== Grupo Oficinas ==={NO_COLOR}\n")
+    corrida_nomina.calculo_nomina(Empleados_empresa)
+
+    print(f"\n\t{FR_BLUE}=== Grupo Comerciales ==={NO_COLOR}\n")
+    corrida_nomina.calculo_nomina(Comerciales_empresa)
+
+    print(f"{FR_GREEN}\n======= Fin Corrida Nómina Empresa =======\n{NO_COLOR}")    
+
+
     
-
-    nominas = Sistema_nominas(empleados)
-    nominas.calcular_nominas()
     
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
