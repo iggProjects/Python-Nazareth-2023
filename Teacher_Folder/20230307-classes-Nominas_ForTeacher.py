@@ -31,18 +31,18 @@ if __name__ == "__main__":
 
     print(f'\n{FR_BLUE}======= Calculando Nómina General ========{NO_COLOR}\n')
     
-    corrida_nomina = SistemaNominas()
+    corrida_nomina = SistemaNominas()    
 
     print(f"\n\t{FR_BLUE}=== Grupo Oficinas ==={NO_COLOR}\n")
-    for empl in Empleados_empresa:
-        corrida_nomina.calculo_nomina([empl])  
+    corrida_nomina.calculo_nomina(Empleados_empresa)
 
     print(f"\n\t{FR_BLUE}=== Grupo Comerciales ==={NO_COLOR}\n")
-    for comercial in Comerciales_empresa:
-        corrida_nomina.calculo_nomina([comercial])  
+    corrida_nomina.calculo_nomina(Comerciales_empresa)
 
     print(f"{FR_GREEN}\n======= Fin Corrida Nómina Empresa =======\n{NO_COLOR}")    
 
+
+    
     
     # ------------------------------------------------
     #          SHOW VARS CHARACTERISTICS 
