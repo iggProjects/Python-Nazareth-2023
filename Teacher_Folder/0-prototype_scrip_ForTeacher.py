@@ -11,7 +11,7 @@
 # IMPORT SECTION
 #
 
-# cleaning shell with system('cls')
+# clear screen with system('cls')
 from os import system 
 
 # my generic functions

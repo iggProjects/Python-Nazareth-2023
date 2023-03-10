@@ -3,6 +3,10 @@ THIS SCRIPT IS FOR..................
 
 """
 # IMPORT SECTION
+
+# cleaning shell with system('cls')
+from os import system 
+# My own functions
 import MyFunctions.MyFunc as MyFunc
 import MyFunctions.Colors as Col
 
@@ -19,6 +23,9 @@ FR_RED   = "\033[91m"
 # ---------- MAIN ----------
 #
 if __name__ == "__main__":
+
+    # clear screen
+    system('cls')
 
     print(Col.frGREEN("\n---------- main ----------\n"))
     MyFunc.pause()
