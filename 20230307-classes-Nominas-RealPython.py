@@ -1,24 +1,32 @@
 """  
-1.- This code is to pass the exercises to the teacher
-2.- Page 75 (nominas example)
-3.- reference: https://realpython.com/inheritance-composition-python/
+    1.- This code is to pass the exercises to the teacher
+    2.- Page 75 (nominas example)
+    3.- reference: https://realpython.com/inheritance-composition-python/
 """
 #
 # IMPORT SECTION
 #
-from MyFunc_ForTeacher import *
-from Colors_ForTeacher import *
+
+from os import system
+from MyFunctions import MyFunc
+from MyFunctions import Colors
+#from MyFunc_ForTeacher import *
+#from Colors_ForTeacher import *
 
 #
 # ---------- COURSE EXCERCISE ----------
 #
+
+# decision function
+def Y_N_2(msg):
+    return str(input(msg))
 
 #  Class Hierarchies
 class SistemaNominas:
     def calculo_nomina(self, empleados):
         for empleado in empleados:
             nomina_emp = '{:,.2f}'.format(empleado.calculo_nomina()).replace(',','.')
-            print(f"{FR_GREEN}\t{empleado.nombre} ({empleado.id}) | cargo '{empleado.cargo}'{NO_COLOR}\n\t\tpago: {nomina_emp}\n")            
+            print(f"{Colors.FR_GREEN}\t{empleado.nombre} ({empleado.id}) | cargo '{empleado.cargo}'{Colors.NO_COLOR}\n\t\tpago: {nomina_emp}\n")            
 
 class Empleado:
     #def __init__(self, id, nombre):
@@ -50,8 +58,10 @@ class Comercial(SalarioEmpleado):
 
 if __name__ == "__main__":
 
-    print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
-    pause()
+    system('cls')
+
+    print(f"\n{Colors.FR_GREEN}---------- main ----------{Colors.NO_COLOR}\n")
+    MyFunc.pause()
 
     Empleados_empresa = []
     Empleados_empresa.append(SalarioEmpleado(1, 'Iñaki','1959','Errenteria','programador html',1500))
@@ -62,18 +72,18 @@ if __name__ == "__main__":
     Comerciales_empresa.append(Comercial(4, 'Che','','','ventas empresas grandes',2500, 250,))
     Comerciales_empresa.append(Comercial(5, 'Oihana','','','staff marketing',3500, 500))
 
-    print(f'\n{FR_BLUE}======= Calculando Nómina General ========{NO_COLOR}\n')
+    print(f'\n{Colors.FR_BLUE}======= Calculando Nómina General ========{Colors.NO_COLOR}\n')
     
     corrida_nomina = SistemaNominas()
 
-    print(f"\n\t{FR_BLUE}=== Grupo Oficinas ==={NO_COLOR}\n")
+    print(f"\n\t{Colors.FR_BLUE}=== Grupo Oficinas ==={Colors.NO_COLOR}\n")
     for empl in Empleados_empresa:
         corrida_nomina.calculo_nomina([empl])  
 
-    print(f"\n\t{FR_BLUE}=== Grupo Comerciales ==={NO_COLOR}\n")
+    print(f"\n\t{Colors.FR_BLUE}=== Grupo Comerciales ==={Colors.NO_COLOR}\n")
     for comercial in Comerciales_empresa:
         corrida_nomina.calculo_nomina([comercial])  
-    print(f"{FR_GREEN}\n======= Fin Corrida Nómina Empresa =======\n{NO_COLOR}")    
+    print(f"{Colors.FR_GREEN}\n======= Fin Corrida Nómina Empresa =======\n{Colors.NO_COLOR}")    
 
 
     # ------------------------------------------------
@@ -91,19 +101,19 @@ if __name__ == "__main__":
         try: 
             _what_var
             _my_Obj_name = eval(_what_var)
-            print(f"\n{FR_GREEN}---------- INFO FOR OBJECT '{_my_Obj_name}' ----------{NO_COLOR}\n")
-            pause()
+            print(f"\n{Colors.FR_GREEN}---------- INFO FOR OBJECT '{_my_Obj_name}' ----------{Colors.NO_COLOR}\n")
+            MyFunc.pause()
             # my objects functions  
-            mostrar(_my_Obj_name)       
+            MyFunc.mostrar(_my_Obj_name)       
 
         except NameError:
-            print(f"\n\t{FR_RED}---- Var '{_what_var}' doesn't exits 🙄🙄  ----")
-            print(f"\n{FR_GREEN}--------------- That's all for today 👌 ---------------{NO_COLOR}\n")
+            print(f"\n\t{Colors.FR_RED}---- Var '{_what_var}' doesn't exits 🙄🙄  ----")
+            print(f"\n{Colors.FR_GREEN}--------------- That's all for today 👌 ---------------{Colors.NO_COLOR}\n")
 
     else:
-        print(f"\n{FR_GREEN}---------- That's all for today 👌 ----------{NO_COLOR}\n")
+        print(f"\n{Colors.FR_GREEN}---------- That's all for today 👌 ----------{Colors.NO_COLOR}\n")
 
 else:
     # something wrong
-    print(f"\n{FR_RED}---- upsssssssss something is wrong 😢😢  ---{NO_COLOR}\n")
-    pause()
+    print(f"\n{Colors.FR_RED}---- upsssssssss something is wrong 😢😢  ---{Colors.NO_COLOR}\n")
+    MyFunc.pause()
