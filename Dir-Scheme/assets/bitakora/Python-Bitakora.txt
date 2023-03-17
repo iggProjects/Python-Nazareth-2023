@@ -12,6 +12,16 @@ MyFunc
    - OS. SYS most used methods
    - MODULES info
    - Functions for Working with files 
+   
+
+OPEN CMD LINE
+    - Open console with python statement
+        - https://datatofish.com/command-prompt-python/
+            import os
+            os.system('cmd /k "color a & date"')
+        - you can get a useful legend with further information by typing the command below in the Command Prompt:
+          cmd /?     
+
 
 PROTOTIPOS
     - mío: sacar las funciones internas y dejarlas en el IMPORT correspondiente (MyFunctions .MyFunc .Colors)

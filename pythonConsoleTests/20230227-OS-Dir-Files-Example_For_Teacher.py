@@ -19,6 +19,10 @@ from Colors_ForTeacher import *
 #
 
 if __name__ == "__main__":
+    
+    # clean screen
+    os.system('cls')
+
     print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
     pause()
 
