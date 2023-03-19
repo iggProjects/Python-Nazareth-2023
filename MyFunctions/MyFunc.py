@@ -39,9 +39,10 @@ FG_BLACK        = 98
 
 # FOREGORUND CONSTANTS AS TEXT
 FG_WH_TXT = "\033[00m"
-FR_GREEN = "\033[92m"
-FR_RED   = "\033[91m"
-NO_COLOR = "\033[00m"
+FR_GREEN  = "\033[92m"
+FR_RED    = "\033[91m"
+FR_BLUE   = "\033[34m"  # ???
+NO_COLOR  = "\033[00m"
 
 # BACKGROUND CONSTANTS
 BG_BLACK  = 16
@@ -134,7 +135,7 @@ def matrix_view(obj_l_t,n_cols):
 def library_methods(my_lib):
   for method in dir(my_lib):
     LIB_method  = method
-    print(f"{FR_GREEN}{str(my_lib)}.method --> {NO_COLOR}´{LIB_method}")
+    print(f"{FR_GREEN}{str(my_lib)}.method --> {NO_COLOR} {LIB_method}")
   print()  
 
 #
