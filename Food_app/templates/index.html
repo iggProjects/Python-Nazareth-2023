@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <style>
+        .title { margin: 5px; text-align: center;}
+        .content { margin: 5px; padding:2px;width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; }
+        .employee { flex: 15%; padding: 5px; margin: 5px; background-color: #f3f3f3; inline-size: 100%; border:1px solid rgb(204, 204, 204);}
+        .name { color: #00a36f; text-decoration: none;  }
+        nav {background-color: #c2bfbf;}
+        nav a { color: #6d0501; font-size: 1.5em; margin-left: 50px; text-decoration: none;}
+        h1 { width: 100%; text-align: center; }
+        p { margin-top:2px; margin-bottom:2px;}
+        .pagination { margin: 0 auto; }
+        .pagination span { font-size: 2em; margin-right: 10px;}
+        .page-number { color: #d64161; padding: 5px; text-decoration: none; }
+        .current-page-number {color: #666}
+    </style>
+</head>
+<body style="text-align:center;">
+    <nav>
+        <a href="{{ url_for('index') }}">FlaskApp</a>
+        <a href="#">About Us</a>
+    </nav>
+
+    <div class="content">
+        {% block content %} 
+        <h1 >{% block Personas %} Personas {% endblock %}</h1>
+        <div class="content">
+            {% for persona in personas %}
+                <div class="employee">
+                    <p><b>#{{ persona.id }}</b></p>
+                    <p class="name"><b>{{ persona.nombre }}  -- {{ persona.apellido }}  -- {{ persona.fecha_ncto }}</b></p>                                        
+                    <p ><b>{{ persona.ciudad }}</b></p>                                        
+
+                </div>
+            {% endfor %}
+        </div>        
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
