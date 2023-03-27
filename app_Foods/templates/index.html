@@ -9,7 +9,7 @@
         body { margin:0px;}
         .title { margin: 5px; text-align: center;}
         .content { margin: 2px; padding:2px;width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; }
-        .employee { flex: 15%; padding: 5px; margin: 5px; background-color: #f3f3f3; inline-size: 100%; border:1px solid rgb(204, 204, 204);}
+        .plato { flex: 15%; padding: 5px; margin: 5px; background-color: #f3f3f3; inline-size: 100%; border:1px solid rgb(204, 204, 204);}
         .name { color: #00a36f; text-decoration: none;  }
         nav {background-color: #c2bfbf;}
         nav a { color: #6d0501; font-size: 1.5em; margin-left: 50px; text-decoration: none;}
@@ -29,16 +29,38 @@
 
     <div class="content">
         {% block content %} 
-        <h1 >{% block Personas %} Personas {% endblock %}</h1>
+        <h1 >{% block platos %} MENÚ DEL DÍA {% endblock %}</h1>
         <div class="content">
-            {% for persona in personas %}
-                <div class="employee">
-                    <p><b>#{{ persona.id }}</b></p>
-                    <p class="name"><b>{{ persona.nombre }}  -- {{ persona.apellido }}  -- {{ persona.fecha_ncto }}</b></p>                                        
-                    <p ><b>{{ persona.ciudad }}</b></p>                                        
+
+            {% for plato in platos %}
+
+                <div class="plato" title="1er plato menú">
+
+                    <p><b>#{{ plato.id }}</b></p>
+                    <p class="name"><b>{{ plato.tipo }}  -- {{ plato.nombre }}  -- {{ plato.precio }}</b></p>                                        
+                    <p ><b>{{ plato.activo }}</b></p>                                        
 
                 </div>
+                <div class="plato" title="2do plato menú">
+
+                    <p><b>#{{ plato.id }}</b></p>
+                    <p class="name"><b>{{ plato.tipo }}  -- {{ plato.nombre }}  -- {{ plato.precio }}</b></p>                                        
+                    <p ><b>{{ plato.activo }}</b></p>                                        
+
+                </div>
+
+                <div class="plato" title="postre menú">
+
+                    <p><b>#{{ plato.id }}</b></p>
+                    <p class="name"><b>{{ plato.tipo }}  -- {{ plato.nombre }}  -- {{ plato.precio }}</b></p>                                        
+                    <p ><b>{{ plato.activo }}</b></p>                                        
+
+                </div>
+
+
+
             {% endfor %}
+
         </div>        
         {% endblock %}
     </div>
