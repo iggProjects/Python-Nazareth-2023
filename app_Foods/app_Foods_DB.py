@@ -1,0 +1,94 @@
+#  https://github.com/chekulhan/python101/blob/main/sqlalchemy_app.py
+#  https://www.digitalocean.com/community/tutorials/how-to-query-tables-and-paginate-data-in-flask-sqlalchemy
+
+from flask import Flask, request, render_template, redirect, url_for
+
+from flask_sqlalchemy import *
+import os
+app = Flask(__name__)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///' + os.path.join(basedir, 'foods.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+class Plato(db.Model):
+    id         = db.Column(db.Integer, primary_key=True)
+    tipo       = db.Column(db.String(10), nullable=False)
+    nombre     = db.Column(db.String(30), nullable=False)
+    precio     = db.Column(db.Float, nullable=False)
+    disp       = db.Column(db.Integer, nullable=False, default=1)
+    
+
+with app.app_context():
+    db.create_all()
+
+@app.route("/")
+
+def index():
+
+    plato01 = Plato()
+    plato01.tipo = "Entrada"
+    plato01.nombre = "Ensalada Mixta"
+    plato01.precio = 4
+    plato01.disp = 1    
+
+    plato02 = Plato()
+    plato02.tipo = "Entrada"
+    plato02.nombre = "Ensalada Rusa"
+    plato02.precio = 4
+    plato02.disp = 1    
+
+    plato03 = Plato()
+    plato03.tipo = "Ppal"
+    plato03.nombre = "Pasta al pesto"
+    plato03.precio = 6
+    plato03.disp = 1    
+
+    plato04 = Plato()
+    plato04.tipo = "Postre"
+    plato04.nombre = "tarta queso"
+    plato04.precio = 3
+    plato04.disp = 1    
+
+    
+    db.session.add_all([plato01,plato02,plato03,plato04])
+    db.session.commit()
+
+    menu_del_dia = Plato.query.all()
+    
+    #menu_del_dia.sort(key=get_tipo)
+    #print(f"menu del día: {menu_del_dia} | length: {len(menu_del_dia)}  | type: {type(menu_del_dia)}")
+    #print(f"plato 1:  {menu_del_dia[1].nombre}") 
+    entrada = []
+    ppal   = []
+    postre  = []
+    errores = []
+
+    for i in range(len(menu_del_dia)):
+        if menu_del_dia[i].tipo == 'Entrada':
+            entrada.append(menu_del_dia[i])
+        elif menu_del_dia[i].tipo == 'Ppal':
+            ppal.append(menu_del_dia[i])
+        elif menu_del_dia[i].tipo == 'Postre':
+            postre.append(menu_del_dia[i])
+        else:
+            errores.append(menu_del_dia[i])                                                                                                                                                                                                 
+            print('upsssss somthing is wrong... 🙄')  
+
+    #print(f"plato entrada:  {entrada[1].nombre}")  
+
+    for i in range(len(entrada)):
+        entrada[i].id = i +1
+
+    for i in range(len(ppal)):
+        ppal[i].id = i +1
+
+    for i in range(len(postre)):
+        postre[i].id = i +1
+
+
+    return render_template('index.html', entrada=entrada, ppal=ppal, postre=postre)
+
+if __name__=="__main__":
+    app.run(debug=True)
