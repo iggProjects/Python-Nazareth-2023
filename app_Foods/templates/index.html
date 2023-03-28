@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <title>{% block title %} {% endblock %} - URRUTIA App</title>
     <style>
         body { margin:0px;}
         .title { margin: 5px; text-align: center;}
@@ -42,13 +42,15 @@
 <body>
     <nav class="disp-col-cent">
         <a href="{{ url_for('index') }}">URRUTIA</a>
-        <a href="#">About Us</a>
-        <a id="login" href="/login">Login</a>
+        <a href="#">About</a>
+        <a id="login" href="/login">Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </nav>
 
+    <div style="text-align:center;margin:auto;margin-top:20px;"><img src="/static/img/urrutia.jpg" style="border-radius: 10px; border:3px solid rgb(155, 2, 2);" alt="urrutia-01" width="70"/></div>
+    <h1 style="text-align: center; margin-top: 30px; color:rgb(155, 2, 2);">Ongi Etorri URRUTIA Jatetxera</h1>
     <div class="content">
         {% block content %} 
-        <h1 >{% block platos %} MENÚ DEL DÍA {% endblock %}</h1>
+        <h2>{% block platos %} MENÚ DEL DÍA {% endblock %}</h2>
         <div class="disp-row-cent">
 
             <div class="entrada" title="entrada menú">

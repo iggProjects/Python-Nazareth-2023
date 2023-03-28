@@ -26,7 +26,7 @@ with app.app_context():
 @app.route("/")
 
 def index():
-
+    """
     plato01 = Plato()
     plato01.tipo = "Entrada"
     plato01.nombre = "Ensalada Mixta"
@@ -54,7 +54,7 @@ def index():
     
     db.session.add_all([plato01,plato02,plato03,plato04])
     db.session.commit()
-
+    """
     menu_del_dia = Plato.query.all()
     
     #menu_del_dia.sort(key=get_tipo)
@@ -102,9 +102,21 @@ def login():
         
     return render_template('login.html', error=error)
 
-@app.route('/home-admin')
-def home():
-    return render_template('home-admin.html')
+@app.route('/home_admin')
+def home_admin():
+    return render_template('home_admin.html')
+
+@app.route('/reg_insert')
+def reg_insert():
+    return render_template('reg_insert.html')
+
+@app.route('/reg_update')
+def reg_update():
+    return render_template('reg_update.html')
+
+@app.route('/reg_delete')
+def reg_delete():
+    return render_template('reg_delete.html')
 
 
 
