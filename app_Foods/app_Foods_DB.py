@@ -98,9 +98,13 @@ def login():
             error = 'Invalid Credentials. Please try again.'
         else:
             #return redirect(url_for('home'))
-            return render_template('home_admin')
+            return render_template('home_admin.html')
         
     return render_template('login.html', error=error)
+
+@app.route('/home-admin')
+def home():
+    return render_template('home-admin.html')
 
 
 
