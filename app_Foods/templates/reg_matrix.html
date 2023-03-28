@@ -21,8 +21,8 @@
                     {% else %} 
                         <td>SI</td>
                     {% endif %}
-                    <td><a href="{{url_for('reg_update',uid=plato.id)}}">edit</a></td>                    
-                    <td><a href="{{url_for('reg_delete',uid=plato.id)}}"><img width="25px" height="30px" src="/static/img/icons8-trash-32.png" ></a></td>                    
+                    <td><a href="{{url_for('reg_update',uid=plato.id)}}">edit</a></td>                                        
+                    <td><a href="{{url_for('reg_delete',uid=plato.id)}}"><img width="25px" height="30px" src="/static/img/icons8-trash-32.png" ></a></td>
                 </tr>
                 {% endfor %}
             </table>
