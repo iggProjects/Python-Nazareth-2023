@@ -122,24 +122,43 @@ def reg_insert():
         plato_nuevo.disp = 1   
 
         print(plato_nuevo.nombre)
-
+        #plato_nuevo.verified = True
         db.session.add(plato_nuevo)
         db.session.commit()
 
-        return redirect(url_for("reg_matrix"))
+        return redirect(url_for("reg_matrix"))    
     
     return render_template('reg_insert.html')
 
 @app.route('/reg_update/<string:uid>', methods=['POST','GET'])
-def reg_update(uid):
-    return render_template('reg_update.html')
+def reg_update(uid):  
+    """
+    if request.method == 'POST':
+               
+        plato_mod = Plato.query.get(uid)       
+        plato_mod.tipo = request.form['fTipo']
+        plato_mod.nombre = request.form['fNombre']
+        plato_mod.precio = request.form['fPrecio']
+        plato_mod.disp = 1   
+
+        #print(plato_mod.nombre)
+        plato_mod.verified = True
+        db.session.add(plato)
+        db.session.commit()
+        
+        return redirect(url_for("reg_matrix"))
+    """
+    
+    plato = Plato.query.get(uid)
+    return render_template('reg_update.html', plato=plato)
 
 @app.route('/reg_delete/<string:uid>', methods=['GET'])
 def reg_delete(uid):  
     plato=Plato.query.get(uid)
     db.session.delete(plato)    
     db.session.commit()
-    return render_template('reg_matrix.html')
+    return redirect(url_for('reg_matrix'))
+    #return render_template('reg_matrix.html')
 
 if __name__=="__main__":
     app.run(debug=True)

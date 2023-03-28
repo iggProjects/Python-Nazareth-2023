@@ -5,7 +5,7 @@
     <div class="jumbtron text-center disp-row-cent">
         
         <img src="/static/img/urrutia.jpg" style="margin-top:20px;border-radius: 10px; border:3px solid rgb(102, 102, 250)" alt="urrutia-01" width="70"/>        
-        <div class="disp-row-cent" style="width:80%; text-align: center; margin:auto; margin-top: 30px; padding: 20px; border:5px solid rgb(197, 196, 196)">            
+        <div class="disp-row-cent" style="width:60%; text-align: center; margin:auto; margin-top: 30px; padding: 20px; border:5px solid rgb(197, 196, 196)">            
             
             <table style="width:100%;">
                 <tr style="border-bottom: 1px solid gray">
@@ -21,7 +21,8 @@
                     {% else %} 
                         <td>SI</td>
                     {% endif %}
-                    <td><a href="{{url_for('reg_update',uid=plato.id)}}">edit</a></td>                                        
+                    <!--<td><a href="\reg_update.html?fTipo={{plato.tipo}}&fNombre={{plato.nombre}}&fPrecio={{plato.precio}}&fDisp={{plato.disp}}">edit</a></td> -->                                        
+                    <td><a href="{{url_for('reg_update',uid=plato.id)}}">edit</a></td>                                      
                     <td><a href="{{url_for('reg_delete',uid=plato.id)}}"><img width="25px" height="30px" src="/static/img/icons8-trash-32.png" ></a></td>
                 </tr>
                 {% endfor %}
