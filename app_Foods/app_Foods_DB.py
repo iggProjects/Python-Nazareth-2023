@@ -106,16 +106,22 @@ def login():
 def home_admin():
     return render_template('home_admin.html')
 
+@app.route('/reg_matrix')
+def reg_matrix():    
+    platos = Plato.query.all()
+    return render_template('reg_matrix.html', platos=platos)
+
 @app.route('/reg_insert')
 def reg_insert():
     return render_template('reg_insert.html')
 
-@app.route('/reg_update')
-def reg_update():
+@app.route('/reg_update/<string:uid>', methods=['POST','GET'])
+def reg_update(uid):
     return render_template('reg_update.html')
 
-@app.route('/reg_delete')
-def reg_delete():
+@app.route('/reg_delete/<string:uid>', methods=['GET'])
+def reg_delete(uid):
+
     return render_template('reg_delete.html')
 
 
