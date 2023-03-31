@@ -7,8 +7,8 @@ import time
 #
 # Constantes
 #
-ITERAC = 200
-DORMIR= 0.01
+ITERAC = 250
+DORMIR= 0.02
 
 #
 # Funciones
@@ -25,7 +25,7 @@ def parificar(numero):
 
 # Muestro la Matriz
 def mostrar_matriz(matriz):
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = matriz.shape                                   # Dimensiones de la matriz
 	for y in range(0, Y):
 		for x in range(0, X):
@@ -124,48 +124,57 @@ def calcular_matrices(matrices):
 #
 # Programa
 #
-n=1																								# Numero Iteraciones
-nX, nY = os.get_terminal_size(0)									# Obtengo COLUMNAS y LINEAS de la consola
-nX, nY = parificar(int(nX/2)), parificar(nY-2)		# Ajusto por espacios e indicador de iteraciones
 
-# Intento capturar nombre de archivo de la llamada
-try:
-	archivo = sys.argv[1]
-except:
-	archivo = 'NO_ARCHIVO'
+if __name__ == '__main__':
+	n=1													# Numero Iteraciones
+	nX, nY = os.get_terminal_size()					# Obtengo COLUMNAS y LINEAS de la consola
+	#nX, nY = os.get_terminal_size(0)					# Linux Obtengo COLUMNAS y LINEAS de la consola
+	#nX, nY = parificar(int(nX/2)), parificar(nY-2)		# Ajusto por espacios e indicador de iteraciones
+	nX, nY = 20, 20
 
-matriz = crear_matriz(archivo)								# Obtengo la matriz
-mostrar_matriz(matriz)
+	print(f"\nPlaying LifeGame with {nX} cols, {nY} rows and {ITERAC} iterations\n ")
+	pausar()
 
-# pausar()
+	# Intento capturar nombre de archivo de la llamada
+	try:
+		archivo = sys.argv[1]
+	except:
+		archivo = 'NO_ARCHIVO'
 
-# Iteraciones del programa
-while n <= ITERAC:
-	# particiono la matriz
-	m0 = matriz[ 0:int(nX/2), 0:int(nY/2) ]
-	m1 = matriz[ int(nX/2):nX, 0:int(nY/2) ]
-	m2 = matriz[ 0:int(nX/2), int(nY/2):nY ]
-	m3 = matriz[ int(nX/2):nX, int(nY/2):nY ]
-	# Expando las matrices
-	m0e = expandir_matriz(m0, m1, m2, m3)
-	m1e = expandir_matriz(m1, m0, m3, m2)
-	m2e = expandir_matriz(m2, m3, m0, m1)
-	m3e = expandir_matriz(m3, m2, m1, m0)
-
-	# Calculo la iteracion de la matriz
-	m0e, m1e, m2e, m3e = calcular_matrices([m0e, m1e, m2e, m3e])
-
-	# contraigo las matricez
-	m0 = contraer_matriz(m0e)
-	m1 = contraer_matriz(m1e)
-	m2 = contraer_matriz(m2e)
-	m3 = contraer_matriz(m3e)
-
-	# Recombino las matrices particionadas
-	matriz = np.hstack( (np.vstack( (m0,m1) ), np.vstack( (m2,m3) )) )
-
-	# Muestro la nueva cara de la matriz
+	matriz = crear_matriz(archivo)								# Obtengo la matriz
 	mostrar_matriz(matriz)
-	print(f"Iteraciones: {n} de {ITERAC} ({nX}, {nY})")
-	time.sleep(DORMIR)
-	n+=1
+
+	# pausar()
+
+	# Iteraciones del programa
+	while n <= ITERAC:
+
+		# particiono la matriz
+		m0 = matriz[ 0:int(nX/2), 0:int(nY/2) ]
+		m1 = matriz[ int(nX/2):nX, 0:int(nY/2) ]
+		m2 = matriz[ 0:int(nX/2), int(nY/2):nY ]
+		m3 = matriz[ int(nX/2):nX, int(nY/2):nY ]
+		
+		# Expando las matrices
+		m0e = expandir_matriz(m0, m1, m2, m3)
+		m1e = expandir_matriz(m1, m0, m3, m2)
+		m2e = expandir_matriz(m2, m3, m0, m1)
+		m3e = expandir_matriz(m3, m2, m1, m0)
+
+		# Calculo la iteracion de la matriz
+		m0e, m1e, m2e, m3e = calcular_matrices([m0e, m1e, m2e, m3e])
+
+		# contraigo las matricez
+		m0 = contraer_matriz(m0e)
+		m1 = contraer_matriz(m1e)
+		m2 = contraer_matriz(m2e)
+		m3 = contraer_matriz(m3e)
+
+		# Recombino las matrices particionadas
+		matriz = np.hstack( (np.vstack( (m0,m1) ), np.vstack( (m2,m3) )) )
+
+		# Muestro la nueva cara de la matriz
+		mostrar_matriz(matriz)
+		print(f"Iteración: {n} de {ITERAC} ({nX}, {nY})")
+		time.sleep(DORMIR)
+		n+=1

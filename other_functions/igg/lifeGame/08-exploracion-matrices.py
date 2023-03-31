@@ -18,7 +18,7 @@ import os
 
 # Muestro la Matriz
 def mostrar_matriz(matriz):
-	# os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	# os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = matriz.shape                                   # Dimensiones de la matriz
 	for y in range(0, Y):
 		for x in range(0, X):

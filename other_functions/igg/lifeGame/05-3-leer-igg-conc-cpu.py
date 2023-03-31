@@ -28,7 +28,7 @@ def show_4_matrix(mat1,mat2,mat3,mat4):
 	# global matriz1,matriz2,matriz3,matriz4
 	global nX,nY 
 
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = nX, nY				                                  # Dimensiones de la matriz
 	# X, Y = matriz.shape                                 # Dimensiones de la matriz
 	# matriz_Ext = np.zeros((2*X+1, 2*Y+1))								# Inicializo la matriz con ceros
@@ -109,7 +109,7 @@ def exec_game(matriz):
 def exec_4_game(game):
 	global nX, nY, n_iter
 
-	print(f"inicio game number {game}")
+	print(f"init game {game}")
 	pausar()
 
 	matriz1 = crear_matriz()
@@ -140,37 +140,40 @@ def exec_games(list_g,n_iterat,n_cpu):
 
 #
 #  MAIN
-#	
+#
+# 	
+if __name__ == '__main__':
 
-n = 1  # iteration counter
-nY, nX = os.get_terminal_size(0)		# Obtengo COLUMNAS y LINEAS de la consola
-# print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
-nX, nY = nX-22, int(nY/2)-1				  	# Ajusto por espacios e indicador de iteraciones
-# nX,nY = 10,10
-# print(nX,nY)
+	n = 1  # iteration counter
+	#nY, nX = os.get_terminal_size(0)			# LINUX Obtengo COLUMNAS y LINEAS de la consola
+	#nY, nX = os.get_terminal_size()			    # WINDOWSObtengo COLUMNAS y LINEAS de la consola
+	# print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
+	#nX, nY = nX-22, int(nY/2)-1				  	# Ajusto por espacios e indicador de iteraciones
+	nX,nY = 20,20
+	# print(nX,nY)
 
-# pausar()
+	# pausar()
 
-# PARAMETERS . number of CPU, number of games, number of iterations
-n_games = int(sys.argv[1])
-n_iter = int(sys.argv[2])
-n_CPU = int(sys.argv[3])
+	# PARAMETERS . number of CPU, number of games, number of iterations
+	n_games = int(sys.argv[1])
+	n_iter = int(sys.argv[2])
+	n_CPU = int(sys.argv[3])
+	list_games = [(x+1) for x in range(0,n_games)]
 
-list_games = [(x+1) for x in range(0,n_games)]
+	print(f"\n-----Playing LifeGame -----\n ")
+	print(f"\n\t.... with matrix of {nX} cols, {nY} rows ")
+	print(f"\n\t.... games: {len(list_games)} | iterat: {n_iter} | cpu's: {n_CPU}\n ")
+	pausar()	
 
-print(f"games {list_games} | iter {n_iter} | cpu's {n_CPU}")
-pausar()
+	# time
+	inicio = time.time()
 
-# time
-inicio = time.time()
+	# CALL MULTIPROCESSING
+	exec_games(list_games,n_iter,n_CPU)
 
-# CALL MULTIPROCESSING
-exec_games(list_games,n_iter,n_CPU)
+	# BALANCE
+	print(f"----------BALANCE----------\n")
 
+	print(f"Games {n_games} of {n_iter} iterations | 4 matrixes of {nX} rows y {nY} cols")
 
-# BALANCE
-print(f"----------BALANCE----------\n")
-
-print(f"Games {nGames} of {nIter} iterations | 4 matrixes of {nX} rows y {nY} cols")
-
-print(f"Duración: {time.time()-inicio}")
+	print(f"Duración: {time.time()-inicio}")

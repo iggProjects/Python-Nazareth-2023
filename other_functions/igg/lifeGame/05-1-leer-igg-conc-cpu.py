@@ -24,7 +24,7 @@ def pausar():
 
 # Muestro la Matriz
 def mostrar_matriz(matriz,loc):
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = matriz.shape                                   # Dimensiones de la matriz
 	matriz_Ext = np.zeros((2*X+1, 2*Y+1))					# Inicializo la matriz con ceros
 	if loc == 1:
@@ -160,7 +160,8 @@ def ejecutar_matriz(matriz):
 #	
 
 n = 1  # iteration counter
-nY, nX = os.get_terminal_size(0)		# Obtengo COLUMNAS y LINEAS de la consola
+#nY, nX = os.get_terminal_size(0)		# Linux Obtengo COLUMNAS y LINEAS de la consola
+nY, nX = os.get_terminal_size()		    # Windows Obtengo COLUMNAS y LINEAS de la consola
 # print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
 nX, nY = nX-22, int(nY/2)-1				  	# Ajusto por espacios e indicador de iteraciones
 print(nX,nY)

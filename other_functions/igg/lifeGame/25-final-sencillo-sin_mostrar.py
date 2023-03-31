@@ -6,7 +6,7 @@ import time
 #
 # Constantes
 #
-ITERAC = 10
+ITERAC = 100
 DORMIR= 0.0
 
 #
@@ -24,7 +24,7 @@ def parificar(numero):
 
 # Muestro la Matriz
 def mostrar_matriz(matriz):
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = matriz.shape                                   # Dimensiones de la matriz
 	for y in range(0, Y):
 		for x in range(0, X):
@@ -93,30 +93,38 @@ def calcular_matriz(matriz):
 #
 # Programa
 #
-n=1																								# Numero Iteraciones
-# nX, nY = os.get_terminal_size(0)									# Obtengo COLUMNAS y LINEAS de la consola
-# nX, nY = parificar(int(nX/2)), parificar(nY-2)		# Ajusto por espacios e indicador de iteraciones
-nX, nY = 2000, 2000
 
-# Intento capturar nombre de archivo de la llamada
-try:
-	nX, nY = int(sys.argv[1]), int(sys.argv[1])
-	archivo = 'NO_ARCHIVO'
-except:
-	archivo = 'NO_ARCHIVO'
+if __name__ == '__main__':
 
-matriz = crear_matriz(archivo)								# Obtengo la matriz
-# mostrar_matriz(matriz)
+	n=1																								# Numero Iteraciones
+	# nX, nY = os.get_terminal_size(0)									# Obtengo COLUMNAS y LINEAS de la consola
+	# nX, nY = parificar(int(nX/2)), parificar(nY-2)		# Ajusto por espacios e indicador de iteraciones
+	nX, nY = 2000, 2000
 
-# pausar()
+	print(f"\nPlaying LifeGame with {nX} cols, {nY} rows and {ITERAC} iterations\n ")
+	pausar()
 
-# Iteraciones del programa
-while n <= ITERAC:
-	# Calculo la iteracion de la matriz
-	matriz = calcular_matriz(matriz)
 
-	# Muestro la nueva cara de la matriz
+	# Intento capturar nombre de archivo de la llamada
+	try:
+		nX, nY = int(sys.argv[1]), int(sys.argv[1])
+		archivo = 'NO_ARCHIVO'
+	except:
+		archivo = 'NO_ARCHIVO'
+
+	matriz = crear_matriz(archivo)								# Obtengo la matriz
 	# mostrar_matriz(matriz)
-	print(f"Iteraciones: {n} de {ITERAC} ({nX}, {nY})")
-	time.sleep(DORMIR)
-	n+=1
+
+	# pausar()
+
+	# Iteraciones del programa
+	while n <= ITERAC:
+
+		# Calculo la iteracion de la matriz
+		matriz = calcular_matriz(matriz)
+
+		# Muestro la nueva cara de la matriz
+		# mostrar_matriz(matriz)
+		print(f"Iteraciones: {n} de {ITERAC} ({nX}, {nY})")
+		time.sleep(DORMIR)
+		n+=1

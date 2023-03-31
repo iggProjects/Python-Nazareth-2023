@@ -19,8 +19,8 @@ def pausar():
 
 # Muestro la Matriz
 def mostrar_matriz(matriz):
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
-	X, Y = matriz.shape                                   # Dimensiones de la matriz
+	os.system('cls')                           # Ejecuto el comando 'clear' del OS
+	X, Y = matriz.shape                          # Dimensiones de la matriz
 	for y in range(0, Y):
 		for x in range(0, X):
 			if matriz[x,y] == 1:
@@ -29,7 +29,7 @@ def mostrar_matriz(matriz):
 				print(f"\033[0;37m{int(matriz[x,y])}\033[0m", end =" ")
 		print()
 
-# Creo matriz a partir de una archivo si es suministrado
+# Creo matriz a partir de un archivo si es suministrado
 def crear_matriz(nombre_archivo):
 	global nX, nY
 	matriz = np.zeros((nX, nY))					# Inicializo la matriz con ceros
@@ -52,16 +52,17 @@ def crear_matriz(nombre_archivo):
 			traceback.print_exc()
 			pausar()
 	else:
-		matriz = np.random.randint(2, size=(nX, nY))								# Matriz de aleatorios
+		matriz = np.random.randint(2, size=(nX, nY))		# Matriz de aleatorios
 	
 	return matriz
 
 #
 # Programa
 #
-n=1																	# Numero Iteraciones
-nX, nY = os.get_terminal_size(0)		# Obtengo COLUMNAS y LINEAS de la consola
-nX, nY = int(nX/2), (nY-2)					# Ajusto por espacios e indicador de iteraciones
+n=1										# Numero Iteraciones
+nX, nY = os.get_terminal_size()		# Obtengo COLUMNAS y LINEAS de la consola
+print(f"\nterminal columns, lines-----> {os.get_terminal_size()}\n")
+nX, nY = int(nX/2), (nY-2)				# Ajusto por espacios e indicador de iteraciones
 
 # Intento capturar nombre de archivo de la llamada
 try:
@@ -69,7 +70,7 @@ try:
 except:
 	archivo = 'NO_ARCHIVO'
 
-matriz = crear_matriz(archivo)								# Obtengo la matriz
+matriz = crear_matriz(archivo)			# Obtengo la matriz
 mostrar_matriz(matriz)
 
 # pausa()
