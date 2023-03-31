@@ -15,6 +15,7 @@ import time
 SLEEP= 0.01
 NX = 40
 NY = 40
+NITER = 10
 #
 # Funciones
 #
@@ -131,7 +132,7 @@ def exec_4_game(game):
 	matriz4 = crear_matriz()
 
 	n=1
-	while n<= nIter:	  
+	while n<= NITER:	  
 	# while n<= nIter or [CONDICION DE MATRIZ IDENTICA ENTRE DOS ITER]:	  
 
 		matriz1 = exec_game_iter(matriz1)
@@ -153,8 +154,8 @@ def exec_4_game(game):
 # FUNCTION POOL FOR MULTIPROCESSING  #
 ######################################
 def exec_games(list_g,n_iterat,n_cpu):
-	global nX,NY,msg_array
-	print(f"\n......from exec_games() nX: {NX} , NY: {NY}\n\n")
+	global msg_array
+	print(f"\n......from exec_games() NX: {NX} , NY: {NY}\n\n")
 	with multiprocessing.Pool(n_cpu) as pool:
 		pool.map(exec_4_game,list_g)
 
