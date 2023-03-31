@@ -26,19 +26,19 @@ def pausar():
 # Creo matriz a partir de una archivo si es suministrado
 def crear_matriz():
 	global nX, nY
-	print(f"......from crear_matriz() nX: {nX} , nY: {nY}")
-	matriz = np.zeros((nX, nY))					 	# Inicializo la matriz con ceros
-	matriz = np.random.randint(2, size=(nX, nY))
+	print(f"......from crear_matriz() NX: {NX} , NY: {NY}")
+	matriz = np.zeros((NX, NY))					 	# Inicializo la matriz con ceros
+	matriz = np.random.randint(2, size=(NX, NY))
 	return matriz
 
 # Muestro las 4 Matrices (games)
 def show_4_matrix(mat1,mat2,mat3,mat4):
-	global nX,nY 
+	global NX,nY 
   
 	# Ejecuto el comando 'clear' del OS
 	os.system('cls') 
 	
-	X, Y = nX, nY
+	X, Y = NX, NY
 
 	for x in range(0, 2*X+1):
 		for y in range(0, 2*Y+1):
@@ -87,17 +87,17 @@ def exec_game_iter(matriz):
 	matrizTemp = np.copy(matriz)
 
 	# Recorro la matriz para aplicar reglas a la matrizTemp
-	for x in range(0, nX):
-		for y in range(0, nY):
+	for x in range(0, NX):
+		for y in range(0, NY):
 			# Numero de Vecinos
-			nVecinos = matriz[	(x-1)%nX, (y-1)%nY ] 		\
-							 + matriz[	(x)%nX, 	(y-1)%nY ] 		\
-							 + matriz[	(x+1)%nX, (y-1)%nY ] 		\
-							 + matriz[	(x-1)%nX, (y)%nY ] 			\
-							 + matriz[	(x+1)%nX, (y)%nY ] 			\
-							 + matriz[	(x-1)%nX, (y+1)%nY ] 		\
-							 + matriz[	(x)%nX, 	(y+1)%nY ] 		\
-							 + matriz[	(x+1)%nX, (y+1)%nY ]
+			nVecinos = matriz[	(x-1)%NX, (y-1)%NY ] 		\
+							 + matriz[	(x)%NX, 	(y-1)%NY ] 		\
+							 + matriz[	(x+1)%NX, (y-1)%NY ] 		\
+							 + matriz[	(x-1)%NX, (y)%NY ] 			\
+							 + matriz[	(x+1)%NX, (y)%NY ] 			\
+							 + matriz[	(x-1)%NX, (y+1)%NY ] 		\
+							 + matriz[	(x)%NX, 	(y+1)%NY ] 		\
+							 + matriz[	(x+1)%NX, (y+1)%NY ]
 
 			# Regla 1: celda muerta (0) con 3 vecinas revive (1)
 			if matriz[x,y] == 0 and nVecinos == 3:
@@ -111,7 +111,7 @@ def exec_game_iter(matriz):
 	if np.array_equal(matriz,matrizTemp):
 		mess = 'game reach equality '
 		msg_array = np.append(msg_array,mess)
-		matriz = 9 * np.ones([nX,nY])
+		matriz = 9 * np.ones([NX,nY])
 	else:	
 		# Copio matrizTemp en matriz para la proxima iteracion
 		matriz = np.copy(matrizTemp)
@@ -121,7 +121,7 @@ def exec_game_iter(matriz):
 # Execute 4 matrixes (games) simultaneously 
 def exec_4_game(game):
 	global nX, nY, nIter, base_print, msg_text,msg_array
-	print(f"\n......from exec_4_game() nX: {nX} , nY: {nY}\n\n")
+	print(f"\n......from exec_4_game() NX: {NX} , NY: {NY}\n\n")
  
 	print(f"set-> {game} | cpu name {multiprocessing.current_process().name} |  mp name {multiprocessing.Process().name}")
 	 
@@ -153,8 +153,8 @@ def exec_4_game(game):
 # FUNCTION POOL FOR MULTIPROCESSING  #
 ######################################
 def exec_games(list_g,n_iterat,n_cpu):
-	global nX,nY,msg_array
-	print(f"\n......from exec_games() nX: {nX} , nY: {nY}\n\n")
+	global nX,NY,msg_array
+	print(f"\n......from exec_games() nX: {NX} , NY: {NY}\n\n")
 	with multiprocessing.Pool(n_cpu) as pool:
 		pool.map(exec_4_game,list_g)
 
@@ -200,7 +200,7 @@ if __name__ == '__main__':
 	list_games = [(x+1) for x in range(0,nGames)]
 
 	print(f"\n-----Playing LifeGame -----\n ")
-	print(f"\n\t.... with matrix of {nX} cols, {nY} rows ")
+	print(f"\n\t.... with matrix of {NX} cols, {NY} rows ")
 	print(f"\n\t.... games: {len(list_games)} | iterat: {nIter} | cpu's: {nCPU}\n ")
 	pausar()	
 
@@ -211,7 +211,7 @@ if __name__ == '__main__':
 	# BALANCE
 	print(f"\n----------BALANCE----------\n")
 
-	print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {nIter} iterations of game of life of a matrix with {nX} rows y {nY} cols in one quadrant of the screen,\n\tand only {int(nIter/base_print)} print screens for each game (matrix)")
+	print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {nIter} iterations of game of life of a matrix with {NX} rows y {NY} cols in one quadrant of the screen,\n\tand only {int(nIter/base_print)} print screens for each game (matrix)")
 
 	print(f"\nmessage: {msg_text}")
 	print(f"\nAprox of operations: ???")
