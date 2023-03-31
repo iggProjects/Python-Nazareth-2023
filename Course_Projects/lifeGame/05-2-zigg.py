@@ -11,7 +11,7 @@ import sys
 #  Ejecuto matriz (game) según reglas
 #
 def exec_game_iter(matriz):
-	# Hacer lo que quieras con las matrices y las reglas
+	# Hacer lo que quieras hacer con las matrices y las reglas
 	return matriz
 
 
