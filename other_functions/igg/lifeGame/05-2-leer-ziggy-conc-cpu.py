@@ -25,7 +25,7 @@ def pausar():
 # Creo matriz a partir de una archivo si es suministrado
 def crear_matriz():
 	global nX, nY
-	matriz = np.zeros((nX, nY))					# Inicializo la matriz con ceros
+	matriz = np.zeros((nX, nY))						# Inicializo la matriz con ceros
 	matriz = np.random.randint(2, size=(nX, nY))
 	return matriz
 
@@ -34,7 +34,7 @@ def show_4_matrix(mat1,mat2,mat3,mat4):
 	global nX,nY 
   
 	# Ejecuto el comando 'clear' del OS
-	os.system('clear') 
+	os.system('cls') 
 	
 	X, Y = nX, nY
 
@@ -148,49 +148,55 @@ def exec_games(list_g,n_iterat,n_cpu):
 #                         MAIN                               # 
 ##############################################################
 
-# COLUMNS & LINES console screen
-# nY, nX = os.get_terminal_size(0)		
-# print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
-# Ajusto por espacios e indicador de iteraciones
-# nX, nY = nX-22, int(nY/2)-1				  
+if __name__ == '__main__':
 
-nX,nY = 180,800
+	# COLUMNS & LINES console screen
+	# IN WINDOWS DELETE 0 in "...size(0)"
+	# nY, nX = os.get_terminal_size(0)		
+	# print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
+	# Ajusto por espacios e indicador de iteraciones
+	# nX, nY = nX-22, int(nY/2)-1				  
 
-# PARAMETERS 
+	nX, nY = 180, 800
 
-# number of SET's, each of one of four games (matrixs)
-nGames = int(sys.argv[1])
+	# PARAMETERS 
 
-# number of iterations in each game
-nIter = int(sys.argv[2])
+	# number of SET's, each of one of four games (matrixs)
+	nGames = int(sys.argv[1])
+	# number of iterations in each game
+	nIter = int(sys.argv[2])
+	# number of CPU in multiprocessing call
+	nCPU = int(sys.argv[3])
 
-# number of CPU in multiprocessing call
-nCPU = int(sys.argv[3])
+	# msg_array is for record events like equal matrix iteration
+	# msg_text is for record finished game info
 
-# msg_array is for record events like equal matrix iteration
-# msg_text is for record finished game info
+	msg_array = []
+	msg_text  = 'Games record-> '
 
-msg_array = [];
-msg_text  = 'Games record-> ';
+	# base_print for control of prints
+	base_print = int(nIter/10) 
 
-# base_print for control of prints
-base_print = int(nIter/10) 
+	# time
+	inicio = time.time()
 
-# time
-inicio = time.time()
+	# parameter for multiporcessing call
+	list_games = [(x+1) for x in range(0,nGames)]
 
-# parameter for multiporcessing call
-list_games = [(x+1) for x in range(0,nGames)]
+	print(f"\n-----Playing LifeGame -----\n ")
+	print(f"\n\t.... with matrix of {nX} cols, {nY} rows ")
+	print(f"\n\t.... games: {len(list_games)} | iterat: {nIter} | cpu's: {nCPU}\n ")
+	pausar()	
 
-# CALL MULTIPROCESSING
-exec_games(list_games,nIter,nCPU)
+	# CALL MULTIPROCESSING
+	exec_games(list_games,nIter,nCPU)
 
-# BALANCE
-print(f"\n----------BALANCE----------\n")
+	# BALANCE
+	print(f"\n----------BALANCE----------\n")
 
-print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {nIter} iterations of game of life of a matrix with {nX} rows y {nY} cols in one quadrant of the screen,\n\tand only {int(nIter/base_print)} print screens for each game (matrix)")
+	print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {nIter} iterations of game of life of a matrix with {nX} rows y {nY} cols in one quadrant of the screen,\n\tand only {int(nIter/base_print)} print screens for each game (matrix)")
 
-print(f"\nmessage: {msg_text}")
-print(f"\nAprox of operations: ???")
+	print(f"\nmessage: {msg_text}")
+	print(f"\nAprox of operations: ???")
 
-print(f"Duración: {time.time()-inicio}")
+	print(f"Duración: {time.time()-inicio}")

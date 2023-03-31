@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-#  https://stackoverflow.com/questions/7618858/how-to-to-read-a-matrix-from-a-given-file
-#  https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html
-#  https://stackoverflow.com/questions/40955656/how-does-python-split-function-works/40955737
+# https://stackoverflow.com/questions/7618858/how-to-to-read-a-matrix-from-a-given-file
+# https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html
+# https://stackoverflow.com/questions/40955656/how-does-python-split-function-works/40955737
 # https://www.geeksforgeeks.org/python-os-path-isfile-method/
 # https://docs.python.org/3/library/os.html
 # https://gist.github.com/jtriley/1108174
@@ -23,11 +23,11 @@ DORMIR= 0.05
 
 # Pauso la ejecucion
 def pausar():
-	userInput = input('Presiona ENTER para continuar CTRL-C para salir. ');
+	userInput = input('Presiona ENTER para continuar CTRL-C para salir. ')
 
 # Muestro la Matriz
 def mostrar_matriz(matriz):
-	os.system('clear')                                    # Ejecuto el comando 'clear' del OS
+	os.system('cls')                                    # Ejecuto el comando 'clear' del OS
 	X, Y = matriz.shape                                   # Dimensiones de la matriz
 	for x in range(0, X):
 		for y in range(0, Y):
@@ -85,12 +85,10 @@ def crear_matriz(nombre_archivo):
 # Programa
 #
 
-n=1																	# Numero Iteraciones
-nY, nX = os.get_terminal_size(0)		# Obtengo COLUMNAS y LINEAS de la consola
-print(f"cols: {os.get_terminal_size(0)[0]} , rows:  {os.get_terminal_size(0)[1]} ")
-# pausar()
-
-nX, nY = nX-10, int(nY/3)				  	# Ajusto por espacios e indicador de iteraciones
+n=1										# Numero Iteraciones
+nY, nX = os.get_terminal_size()			# Obtengo COLUMNAS y LINEAS de la consola
+print(f"\nterminal columns: {os.get_terminal_size()[0]} , lines: {os.get_terminal_size()[1]}\n")
+nX, nY = nX-10, int(nY/3)				# Ajusto por espacios e indicador de iteraciones
 # print(f"{nX},{nY}")
 
 pausar()
