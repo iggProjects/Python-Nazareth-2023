@@ -87,7 +87,6 @@ def index():
     for i in range(len(postre)):
         postre[i].id = i +1
 
-
     return render_template('index.html', entrada=entrada, ppal=ppal, postre=postre)
 
 @app.route('/login',methods=['GET', 'POST'])
@@ -98,18 +97,18 @@ def login():
             error = 'Invalid Credentials. Please try again.'
         else:
             #return redirect(url_for('home'))
-            return render_template('home_admin.html')
+            return render_template('foods_home_admin.html')
         
     return render_template('login.html', error=error)
 
 @app.route('/home_admin')
 def home_admin():
-    return render_template('home_admin.html')
+    return render_template('foods_home_admin.html')
 
 @app.route('/reg_matrix')
 def reg_matrix():    
     platos = Plato.query.all()
-    return render_template('reg_matrix.html', platos=platos)
+    return render_template('foods_reg_matrix.html', platos=platos)
 
 @app.route('/reg_insert',methods=['POST','GET'])
 def reg_insert():
@@ -126,9 +125,9 @@ def reg_insert():
         db.session.add(plato_nuevo)
         db.session.commit()
 
-        return redirect(url_for("reg_matrix"))    
+        return redirect(url_for("foods_reg_matrix"))    
     
-    return render_template('reg_insert.html')
+    return render_template('foods_reg_insert.html')
 
 @app.route('/reg_update/<string:uid>', methods=['POST','GET'])
 def reg_update(uid):  
@@ -142,18 +141,18 @@ def reg_update(uid):
 
         db.session.commit()
 
-        return redirect(url_for("reg_matrix"))    
+        return redirect(url_for("foods_reg_matrix"))    
 
     
     plato = Plato.query.get(uid)
-    return render_template('reg_update.html', plato=plato)
+    return render_template('foods_reg_update.html', plato=plato)
 
 @app.route('/reg_delete/<string:uid>', methods=['GET'])
 def reg_delete(uid):  
     plato=Plato.query.get(uid)
     db.session.delete(plato)    
     db.session.commit()
-    return redirect(url_for('reg_matrix'))
+    return redirect(url_for('foods_reg_matrix'))
     #return render_template('reg_matrix.html')
 
 if __name__=="__main__":
