@@ -1,0 +1,31 @@
+HORA Y MEDIA
+
+1ra parte: 20 preguntas 
+
+2da parte: desarrollo
+	- 5 preg
+
+=========================
+
+variables MUTABLE vs NO MUTABLE
+
+pass statement
+
+REST -- requests, responses ?
+
+PEP-8
+
+días de la semana
+
+versión python: python --version
+
+list, dict, tuples: script to ask if user want to add new elem
+
+ejerc 19: script to calculate distance
+
+strings methods.... ver ej 12
+
+pag 8 ... ejerc Clases - interactivo para filtrar datos
+
+
+
