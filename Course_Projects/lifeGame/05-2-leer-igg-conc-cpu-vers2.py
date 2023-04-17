@@ -12,33 +12,36 @@ import time
 #
 # Constantes
 #
-SLEEP= 0.01
+SLEEP= 0.02
 NX = 40
 NY = 40
+N_ITER = 10
+BASE_PRINT = int(N_ITER/10)
+
 #
 # Funciones
 #
 
 # Pausa ejecucion
 def pausar():
-	userInput = input('Presiona ENTER para continuar CTRL-C para salir. ');
+	userInput = input('Presiona ENTER para continuar CTRL-C para salir. ')
 
 # Creo matriz a partir de una archivo si es suministrado
 def crear_matriz():
 	global nX, nY
-	print(f"......from crear_matriz() nX: {nX} , nY: {nY}")
-	matriz = np.zeros((nX, nY))					 	# Inicializo la matriz con ceros
-	matriz = np.random.randint(2, size=(nX, nY))
+	print(f"......from crear_matriz() NX: {NX} , NY: {NY}")
+	matriz = np.zeros((NX, NY))					 	# Inicializo la matriz con ceros
+	matriz = np.random.randint(2, size=(NX, NY))
 	return matriz
 
 # Muestro las 4 Matrices (games)
 def show_4_matrix(mat1,mat2,mat3,mat4):
-	global nX,nY 
+	global NX,nY 
   
 	# Ejecuto el comando 'clear' del OS
 	os.system('cls') 
 	
-	X, Y = nX, nY
+	X, Y = NX, NY
 
 	for x in range(0, 2*X+1):
 		for y in range(0, 2*Y+1):
@@ -87,17 +90,17 @@ def exec_game_iter(matriz):
 	matrizTemp = np.copy(matriz)
 
 	# Recorro la matriz para aplicar reglas a la matrizTemp
-	for x in range(0, nX):
-		for y in range(0, nY):
+	for x in range(0, NX):
+		for y in range(0, NY):
 			# Numero de Vecinos
-			nVecinos = matriz[	(x-1)%nX, (y-1)%nY ] 		\
-							 + matriz[	(x)%nX, 	(y-1)%nY ] 		\
-							 + matriz[	(x+1)%nX, (y-1)%nY ] 		\
-							 + matriz[	(x-1)%nX, (y)%nY ] 			\
-							 + matriz[	(x+1)%nX, (y)%nY ] 			\
-							 + matriz[	(x-1)%nX, (y+1)%nY ] 		\
-							 + matriz[	(x)%nX, 	(y+1)%nY ] 		\
-							 + matriz[	(x+1)%nX, (y+1)%nY ]
+			nVecinos = matriz[	(x-1)%NX, (y-1)%NY ] 		\
+							 + matriz[	(x)%NX, 	(y-1)%NY ] 		\
+							 + matriz[	(x+1)%NX, (y-1)%NY ] 		\
+							 + matriz[	(x-1)%NX, (y)%NY ] 			\
+							 + matriz[	(x+1)%NX, (y)%NY ] 			\
+							 + matriz[	(x-1)%NX, (y+1)%NY ] 		\
+							 + matriz[	(x)%NX, 	(y+1)%NY ] 		\
+							 + matriz[	(x+1)%NX, (y+1)%NY ]
 
 			# Regla 1: celda muerta (0) con 3 vecinas revive (1)
 			if matriz[x,y] == 0 and nVecinos == 3:
@@ -111,7 +114,7 @@ def exec_game_iter(matriz):
 	if np.array_equal(matriz,matrizTemp):
 		mess = 'game reach equality '
 		msg_array = np.append(msg_array,mess)
-		matriz = 9 * np.ones([nX,nY])
+		matriz = 9 * np.ones([NX,nY])
 	else:	
 		# Copio matrizTemp en matriz para la proxima iteracion
 		matriz = np.copy(matrizTemp)
@@ -121,7 +124,7 @@ def exec_game_iter(matriz):
 # Execute 4 matrixes (games) simultaneously 
 def exec_4_game(game):
 	global nX, nY, nIter, base_print, msg_text,msg_array
-	print(f"\n......from exec_4_game() nX: {nX} , nY: {nY}\n\n")
+	print(f"\n......from exec_4_game() NX: {NX} , NY: {NY}\n\n")
  
 	print(f"set-> {game} | cpu name {multiprocessing.current_process().name} |  mp name {multiprocessing.Process().name}")
 	 
@@ -131,7 +134,7 @@ def exec_4_game(game):
 	matriz4 = crear_matriz()
 
 	n=1
-	while n<= nIter:	  
+	while n<= N_ITER:	  
 	# while n<= nIter or [CONDICION DE MATRIZ IDENTICA ENTRE DOS ITER]:	  
 
 		matriz1 = exec_game_iter(matriz1)
@@ -139,22 +142,26 @@ def exec_4_game(game):
 		matriz3 = exec_game_iter(matriz3)
 		matriz4 = exec_game_iter(matriz4)
 
+		if (n % BASE_PRINT == 0):
 		#if (n % base_print == 0):
-			#print(f"n-> {n} | cpu name {multiprocessing.current_process().name} |  mp name {multiprocessing.Process().name}")
-			#show_4_matrix(matriz1,matriz2,matriz3,matriz4)
+			print(f"n-> {n} | cpu name {multiprocessing.current_process().name} |  mp name {multiprocessing.Process().name}")
+			show_4_matrix(matriz1,matriz2,matriz3,matriz4)
 		
 		n+=1
 
 	return n
 
 	msg_text = msg_text + ' Game ' + str(game)  + ' finished | '
-	print(f"Set {game} finished | {nIter} of iterations for each game, total games: 4, total iterat {nIter*4}")
+	print(f"Set {game} finished | {N_ITER} of iterations for each game, total games: 4, total iterat {N_ITER*4}")
+	pausar()
+
 
 # FUNCTION POOL FOR MULTIPROCESSING  #
 ######################################
 def exec_games(list_g,n_iterat,n_cpu):
-	global nX,nY,msg_array
-	print(f"\n......from exec_games() nX: {nX} , nY: {nY}\n\n")
+	global msg_array
+	print(f"\n......from exec_games() NX: {NX} , NY: {NY}\n\n")
+	pausar()
 	with multiprocessing.Pool(n_cpu) as pool:
 		pool.map(exec_4_game,list_g)
 
@@ -177,21 +184,18 @@ if __name__ == '__main__':
 
 	# number of SET's, each of one of four games (matrixs)
 	nGames = int(sys.argv[1])
-
 	# number of iterations in each game
 	nIter = int(sys.argv[2])
-
 	# number of CPU in multiprocessing call
 	nCPU = int(sys.argv[3])
 
 	# msg_array is for record events like equal matrix iteration
 	# msg_text is for record finished game info
-
 	msg_array = []
 	msg_text  = 'Games record-> '
 
 	# base_print for control of prints
-	base_print = int(nIter/10) 
+	#BASE_PRINT = int(NITER/10) 
 
 	# time
 	inicio = time.time()
@@ -200,8 +204,8 @@ if __name__ == '__main__':
 	list_games = [(x+1) for x in range(0,nGames)]
 
 	print(f"\n-----Playing LifeGame -----\n ")
-	print(f"\n\t.... with matrix of {nX} cols, {nY} rows ")
-	print(f"\n\t.... games: {len(list_games)} | iterat: {nIter} | cpu's: {nCPU}\n ")
+	print(f"\n\t.... with matrix of {NX} cols, {NY} rows ")
+	print(f"\n\t.... {len(list_games)} games  with {N_ITER} per game and {nCPU} cpu's processing tasks \n ")
 	pausar()	
 
 
@@ -211,9 +215,10 @@ if __name__ == '__main__':
 	# BALANCE
 	print(f"\n----------BALANCE----------\n")
 
-	print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {nIter} iterations of game of life of a matrix with {nX} rows y {nY} cols in one quadrant of the screen,\n\tand only {int(nIter/base_print)} print screens for each game (matrix)")
+	print(f"Sets executed: {list_games[nGames-1]} | Games executed: {list_games[nGames-1]*4}\n\tEach game (matrix) includes {N_ITER} iterations of game of life of a matrix with {NX} rows y {NY} cols in one quadrant of the screen,\n\tand only {int(N_ITER/BASE_PRINT)} print screens for each game (matrix)")
 
 	print(f"\nmessage: {msg_text}")
 	print(f"\nAprox of operations: ???")
 
-	print(f"Duración: {time.time()-inicio}")
+	print(f"Duración: {time.time()-inicio}/n/n")
+

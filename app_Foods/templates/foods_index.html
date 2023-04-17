@@ -30,7 +30,7 @@
         
         table {margin: 0 auto; }
         
-        table td { padding:5px; }
+        table td { padding:10px; }
         h1 { width: 100%; text-align: center; }
         p { margin-top:2px; margin-bottom:2px;}
         .pagination { margin: 0 auto; }
@@ -50,12 +50,12 @@
 
     <div style="text-align:center;margin:auto;margin-top:20px;"><img src="/static/img/urrutia.jpg" style="border-radius: 10px; border:3px solid rgb(155, 2, 2);" alt="urrutia-01" width="70"/></div>
     <h1 style="text-align: center; font-size:20px; margin-top: 10px; color:rgb(155, 2, 2);">Ongi Etorri URRUTIA Jatetxera<br><span style="font-size: 15px;;">Caracas - Venezuela</span></h1>
-    <div style="width:80px; margin:auto; padding:2px; text-align: center; border-radius: 10px; background-color: blue;">
-        <a style="font-size: 16px; color: white;text-decoration: none;" href="{{ url_for('foods_login') }}">Login</a>
+    <div style="width:180px; margin:auto; padding:2px; text-align: center; border-radius: 10px; background-color: blue;">
+        <a style="font-size: 16px; color: white;text-decoration: none;" href="{{ url_for('foods_login') }}">Login Menú Admin</a>
     </div>
     <div class="content">
         {% block content %} 
-        <h2 style="margin:10px; font-size: 18px;">{% block platos %} MENÚ DEL DÍA {% endblock %}</h2>
+        <h2 style="margin:10px; font-size: 18px;;">{% block platos %} MENÚ DEL DÍA {% endblock %}</h2>
         <div class="disp-row-cent">
 
             <div class="entrada" title="entrada menú">

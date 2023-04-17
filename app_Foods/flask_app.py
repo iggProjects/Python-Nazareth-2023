@@ -87,32 +87,36 @@ def index():
     for i in range(len(postre)):
         postre[i].id = i +1
 
-
     return render_template('index.html', entrada=entrada, ppal=ppal, postre=postre)
 
-@app.route('/login',methods=['GET', 'POST'])
-def login():      
+"""
+@app.route('/foods_index',methods=['GET', 'POST'])
+def foods_index():      
+    return render_template('foods_index.html')
+"""
+@app.route('/foods_login',methods=['GET', 'POST'])
+def foods_login():      
     error = None
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = 'Invalid Credentials. Please try again.'
         else:
-            #return redirect(url_for('home'))
-            return render_template('home_admin.html')
+            return redirect(url_for('foods_home_admin'))
+            #return render_template('foods_home_admin.html')
         
-    return render_template('login.html', error=error)
+    return render_template('foods_login.html', error=error)
 
-@app.route('/home_admin')
-def home_admin():
-    return render_template('home_admin.html')
+@app.route('/foods_home_admin')
+def foods_home_admin():
+    return render_template('foods_home_admin.html')
 
-@app.route('/reg_matrix')
-def reg_matrix():    
+@app.route('/foods_reg_matrix')
+def foods_reg_matrix():    
     platos = Plato.query.all()
-    return render_template('reg_matrix.html', platos=platos)
+    return render_template('foods_reg_matrix.html', platos=platos)
 
-@app.route('/reg_insert',methods=['POST','GET'])
-def reg_insert():
+@app.route('/foods_reg_insert',methods=['POST','GET'])
+def foods_reg_insert():
     if request.method == 'POST':
 
         plato_nuevo = Plato()
@@ -121,25 +125,40 @@ def reg_insert():
         plato_nuevo.precio = request.form['fPrecio']
         plato_nuevo.disp = 1   
 
-        print(plato_nuevo.nombre)
-
+        print("plato_nuevo ----> " + plato_nuevo.nombre)
+        #plato_nuevo.verified = True
         db.session.add(plato_nuevo)
         db.session.commit()
 
-        return redirect(url_for("reg_matrix"))
+        return redirect(url_for("foods_reg_matrix"))    
     
-    return render_template('reg_insert.html')
+    return render_template('foods_reg_insert.html')
 
-@app.route('/reg_update/<string:uid>', methods=['POST','GET'])
-def reg_update(uid):
-    return render_template('reg_update.html')
+@app.route('/foods_reg_update/<string:uid>', methods=['POST','GET'])
+def foods_reg_update(uid):  
+    if request.method == 'POST':
 
-@app.route('/reg_delete/<string:uid>', methods=['GET'])
-def reg_delete(uid):  
+        plato_mod = Plato.query.get(uid)
+        plato_mod.tipo = request.form['fTipo']
+        plato_mod.nombre = request.form['fNombre']
+        plato_mod.precio = request.form['fPrecio']
+        plato_mod.disp = 1   
+
+        db.session.commit()
+
+        return redirect(url_for("foods_reg_matrix"))    
+
+    
+    plato = Plato.query.get(uid)
+    return render_template('foods_reg_update.html', plato=plato)
+
+@app.route('/foods_reg_delete/<string:uid>', methods=['GET'])
+def foods_reg_delete(uid):  
     plato=Plato.query.get(uid)
     db.session.delete(plato)    
     db.session.commit()
-    return render_template('reg_matrix.html')
+    return redirect(url_for('foods_reg_matrix'))
+    #return render_template('reg_matrix.html')
 
 if __name__=="__main__":
     app.run(debug=True)
