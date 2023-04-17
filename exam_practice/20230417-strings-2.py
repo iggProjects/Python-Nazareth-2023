@@ -6,6 +6,5 @@ print(a)
 for i in a:
   print(i[0])
 
-
 a_lower = [i.lower() for i in a]
 print(sorted(a_lower))
