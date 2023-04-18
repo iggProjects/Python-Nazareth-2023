@@ -1,6 +1,7 @@
 """
 Clases (5 puntos)
-Crear una función para validar los datos de un producto. El nombre del producto tiene que empezar en MAYÚSCULAS, el precio es mayor a 10 euros y la cantidad disponible es entre 1 y 100.
+Crear una función para validar los datos de un producto. El nombre del producto tiene que empezar 
+en MAYÚSCULAS, el precio es mayor a 10 euros y la cantidad disponible es entre 1 y 100.
 
 Completar la tabla de pruebas:
 
