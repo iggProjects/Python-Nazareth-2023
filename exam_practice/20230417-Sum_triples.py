@@ -22,6 +22,9 @@ def sum_lista(lista):
       suma += i
    return suma
 
+def th_2_dec(num):
+    return "{0:,.2f}".format(num)
+
 
 if __name__ == "__main__":
   

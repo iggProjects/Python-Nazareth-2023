@@ -18,7 +18,7 @@ FR_YELL  = "\033[93m"
 
 # pause function
 def pause():  
-  userInput = input(f"\n{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")
+  userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")
 
 def printMsg(msg):
     print(f"{FR_GREEN}{msg}{NO_COLOR}")
@@ -33,12 +33,11 @@ def th_2_dec(num):
 if __name__ == "__main__":
   
     system('cls')
-    print(F"\n\t{COL['yel']}=== TITLE ==={COL['b_n']}\n")
+    print(F"\n\t{COL['yel']}=== ORACLE EXCERCISE ==={COL['b_n']}\n")
 
 
-    """
-    CODE
-    """
+
+
 
 
     print(F"\n\t{FR_YELL}=== That's all for today ==={NO_COLOR}\n")

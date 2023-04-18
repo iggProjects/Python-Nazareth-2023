@@ -20,10 +20,7 @@ def pause():
 if __name__ == "__main__":
 
     system('cls')
-    print(F"\n\t{COL['yel']}=== TITLE ==={COL['b_n']}\n")
-
-
-    print(f"\n\t{COL['yel']}Script para imprimir las letras que están en mayúsculas{COL['b_n']}\n")
+    print(F"\n\t{COL['yel']}=== Script para imprimir las letras que están en mayúsculas ==={COL['b_n']}\n")
 
     texto = "This is a Long text and Only the letters with Capital letters will be Included"
     #texto2 = "This is a    Long     text    and Only the letters with Capital letters will be Included"

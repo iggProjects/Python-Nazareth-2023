@@ -27,5 +27,15 @@ strings methods.... ver ej 12
 
 pag 8 ... ejerc Clases - interactivo para filtrar datos
 
+============================
 
+tips scrumb
+
+any statement
+
+pandas
+
+sqlite
+
+oracle
 

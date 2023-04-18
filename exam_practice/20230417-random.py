@@ -29,6 +29,9 @@ def pause():
 def printMsg(msg):
    print(f"{FR_GREEN}{msg}{NO_COLOR}")       
 
+def th_2_dec(num):
+    return "{0:,.2f}".format(num)
+
 
 if __name__ == "__main__":
   
