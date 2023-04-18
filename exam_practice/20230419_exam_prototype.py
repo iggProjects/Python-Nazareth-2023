@@ -41,4 +41,4 @@ if __name__ == "__main__":
     """
 
 
-    print(F"\n\t{FR_YELL}=== That's all for today ==={COL['b_n']}\n")
+    print(F"\n\t{FR_YELL}=== That's all for today ==={NO_COLOR}\n")
