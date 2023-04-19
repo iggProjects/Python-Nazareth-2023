@@ -36,15 +36,17 @@ def th_2_dec(num):
 if __name__ == "__main__":
   
     system('cls')
-    print(F"\n\t{COL['yel']}=== ADD NEW KEY-VALUE TO A DICT ==={COL['b_n']}\n")
+    print(F"\n\t{COL['yel']}=== ADD NEW KEY-VALUE TO A DICT ==={COL['b_n']}")
 
     coche = {'brand':'Ford','modelo':'mustang','año':194}
     print(f"\n\t{FR_YELL}coche dict:{NO_COLOR}\n\t{coche}")
 
+    # add new key,value in 'coche'
     coche['descapotable'] = False
     print(f"\n\t{FR_YELL}coche dict with new key-val:{NO_COLOR}\n\t{coche}")
 
-    print(f"\n\t{FR_YELL}print not integer values of dict:{NO_COLOR}\n")
+    # print not integer values of dict
+    print(f"\n\t{FR_YELL}printing not integer values of dict:{NO_COLOR}\n")
     for k,v in coche.items():
         if 'int' not in str(type(v)):
             print(f"\t\t{k} : {v}")
