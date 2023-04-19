@@ -40,7 +40,19 @@ if __name__ == "__main__":
     new_texto_may = new_texto.upper()
     print(f"{FR_GREEN}New Text in mayúsculas:{NO_COLOR}\n'{new_texto_may}'\n")
 
+    new_texto_list = new_texto.split()
+    new_texto_1Mayusc_str = "" 
+    """    
+    for w in new_texto_list:
+       new_texto_1Mayusc += w.capitalize() + ' '
+    """
+    new_texto_1Mayusc_list = [  w.capitalize() + ' ' for w in new_texto_list ]
+    new_texto_1Mayusc_str = ''.join(w for w in new_texto_1Mayusc_list)
+    
+    print(f"{FR_GREEN}Primera letra de cada palabra en mayúsculas:{NO_COLOR}\n'{new_texto_1Mayusc_str}'\n")
 
-
+    new_texto_minusc = new_texto.lower()
+    new_texto_min_list = new_texto_minusc.split()
+    print(f"{FR_GREEN}Lista palabras en orden alfabético:{NO_COLOR}\n'{sorted(new_texto_min_list)}'\n")
 
     print(F"\n\t{COL['gr']}=== That's all for today ==={COL['b_n']}\n")

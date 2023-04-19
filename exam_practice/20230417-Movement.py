@@ -62,7 +62,7 @@ if __name__ == "__main__":
             printMsg('\tIndique un número >=0 !!!')     
 
     repeat = True
-    # loop until a number is captured
+    # loop until a time is captured
     while repeat:   
         # input tiempo
         try:
@@ -75,7 +75,7 @@ if __name__ == "__main__":
                 repeat = False
             
         except ValueError: 
-            printMsg('\tIndique un tiempo positvo > 0 !!!')            
+            printMsg('\tIndique un tiempo positivo > 0 !!!')            
 
     printMsg(f"\n{FR_YELL}=== La velocidad del objeto es: {th_2_dec(dist/time_)} mts/seg ===")
     print(F"\n\t{COL['gr']}=== That's all for today ==={COL['b_n']}\n")

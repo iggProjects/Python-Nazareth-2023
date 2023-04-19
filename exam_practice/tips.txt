@@ -7,23 +7,51 @@ HORA Y MEDIA
 
 =========================
 
-variables MUTABLE vs NO MUTABLE
+variables MUTABLE, NO MUTABLE
+	- use id() to know if a var is mutable, no mutable
+	- mutable: change memory address
+	- inmutables: numb,str,tuples | mutables:  lists, sets, dict
+		>>> str='hola'
+		>>> str[0] = 1
+		Traceback (most recent call last):
+		File "<stdin>", line 1, in <module>
+		TypeError: 'str' object does not support item assignment
 
-pass statement
+		>>> list=[1,2]
+		>>> list[0]='1'
+		>>> list
+		['1', 2]
+		>>> str
+		'hola'
+
 
 REST -- requests, responses ?
 
-PEP-8
+PEP-8: Guido van Rossum: coding conventions for the Python code comprising the standard library in the main Python distribution
 
-días de la semana
+python is case sensitive
+
+camelcase
+	The very first letter is not capitalized.
+	The first letters of each compound word are capitalized.
 
 versión python: python --version
 
-list, dict, tuples: script to ask if user want to add new elem
+REST services -> requests module
+
+"{0:,.2f}".format(num)  for thousands and 2 dec
+
+range to list ex: list=[*range(10)]
+
+list, dict, tuples 
+
+script to ask if user want to add new elem
 
 ejerc 19: script to calculate distance
 
 strings methods.... ver ej 12
+	- split(), replace(), strip(), swapcase(), capitalize(), casefold(),center(),count(),encode(),find(),format(), index(), isalnum(), 
+	isalph(), islower(), isupper(), isnumeric(), upper(), lower()
 
 pag 8 ... ejerc Clases - interactivo para filtrar datos
 
@@ -38,4 +66,19 @@ pandas
 sqlite
 
 oracle
+	https://livesql.oracle.com/apex/f?p=590:1000
+	user jo.gainzarain@aulanz.net 
+	@nz2223Nz@
+	button start coding
 
+	SELECT * FROM all_tables WHERE owner='CO';
+	describe CO.ORDER_ITEMS;	
+
+	select 
+		a.ORDER_ID,    
+		a.UNIT_PRICE,
+		a.QUANTITY,
+		b.PRODUCT_NAME,
+		a.UNIT_PRICE * a.QUANTITY as TOTAL
+	from CO.ORDER_ITEMS a INNER JOIN CO.PRODUCTS b 
+	ON a.PRODUCT_ID = b.PRODUCT_ID;

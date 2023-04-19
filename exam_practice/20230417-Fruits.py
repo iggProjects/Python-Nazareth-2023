@@ -49,8 +49,9 @@ if __name__ == "__main__":
             accion = str(input("\nAgregar frutas, o imprimir listado frutas ('A','L') -> "))
 
             if accion == 'A':
-                printMsg('\tAgregando')
-
+                printMsg('\n\tAgregando')
+                fruta=str(input("\tQué fruta desea agrega? "))
+                lista_compra.append(fruta)
                 seguir = str(input("\nContinuar ('S') ? caso positivo responda con la letra S -> "))
                 if seguir == 'S':
                     pass
@@ -60,8 +61,8 @@ if __name__ == "__main__":
                     repeat = False
 
             elif accion == 'L':
-                printMsg('\tImprimiendo listado frutas')   
-
+                printMsg('\n\tImprimiendo listado frutas')   
+                print(f"\t{FR_YELL}Lista de compras:{NO_COLOR} {lista_compra}")
                 seguir = str(input("\nContinuar ('S') caso positivo responda con la letra S -> "))
                 if seguir == 'S':
                     pass
