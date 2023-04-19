@@ -1,27 +1,83 @@
-"""  
-1.- This code is to pass the exercises to the teacher
-2.- The SCRIPT is for:
-    2.1.-
-    2-2.-
-    .
-    .
+from os import system
+import random
 
-"""
-#
-# IMPORT SECTION
-#
+# CONSTANTS
+# Col_dict
+COL = {'b_n':'\033[00m','red':'\033[91m','gr':'\033[92m','yel':'\033[93m'} 
+
+# FR Colors
+NO_COLOR = "\033[00m"
+FR_GREEN = "\033[92m"
+FR_RED   = "\033[91m"
+FR_BLUE  = "\033[94m"
+FR_YELL  = "\033[93m"
+
 from MyFunc_ForTeacher import *
 from Colors_ForTeacher import *
-from math import ceil
+
+# pause function
+def pause():  
+  userInput = input(f"{FR_RED}Press ENTER to continue, or CTRL-C to exit{NO_COLOR}\n")
+
+def printMsg(msg):
+    print(f"{FR_GREEN}{msg}{NO_COLOR}")
+
+def print_BN(msg):
+    print(f"{msg}")       
+
+def th_2_dec(num):
+    return "{0:,.2f}".format(num)
 
 #
-# ---------- COURSE EXCERCISE ----------
+# ---------- EXAM EXCERCISE ----------
 #
 
 if __name__ == "__main__":
-    print(f"\n{FR_GREEN}---------- main ----------{NO_COLOR}\n")
+    print(f"\n{FR_GREEN}---------- CLASSES EXCERCISE ----------{NO_COLOR}\n")
     pause()
 
+    class Producto:    
+
+        def __init__(self, nombre, precio, cantidad): 
+
+            # control first char of name
+            if nombre[0].isupper():
+                self.nombre = nombre             
+            else:
+                return print(f"\t{FR_RED} -- Error: {nombre}: El nombre del producto debe iniciar en mayúsculas{NO_COLOR}")
+                # raise ValueError(f"El nombre del producto debe iniciar en mayúsculas")
+
+            # control precio > 10
+            if precio > 10:
+                self.precio = precio             
+            else:
+                return print(f"\t{FR_RED} -- Error: {precio}: El precio del producto debe ser mayor a 10{NO_COLOR}")    
+                #raise ValueError(f"{FR_RED} -- Error: El precio del producto debe ser mayor a 10")
+
+            # control precio in (1,100)
+            if cantidad in range(1,100):
+                self.cantidad = cantidad             
+            else:
+                return print(f"\t{FR_RED} -- Error: {cantidad}\n\tLa cantidad a introducir debe ser estar entre 1 y 100{NO_COLOR}{NO_COLOR}")        
+                #raise ValueError(f" -- Error: cantidad a introducir debe ser estar entre 1 y 100")
+        
+    Jean = Producto('Jean',20,50)
+    print(f"\t'Jean' object:\n\t{vars(Jean)}\n\n")
+    """
+    for attr in dir(vaquero):
+        if '__' not in attr:
+            atrib_str = attr.split()
+            atrib = atrib_str[0]
+            print(f"\t{attr}: {vaquero} --- {atrib}")
+    """        
+
+    el_principito = Producto('el Principito',8,102)
+    print(f"\t'Jean' object:\n\t{vars(el_principito)}\n\n")
+
+
+    print()        
+
+    """
     # my code
     # page 71
     class User:
@@ -95,7 +151,7 @@ if __name__ == "__main__":
     # in this case, we will have an error
     print(f"{FR_GREEN}in this case, we will have an error\n---- myHeroe.__name can't be invoked ----{NO_COLOR}\n")
     print(myHeroe.__name)
-
+    """
 
     
     # ------------------------------------------------

@@ -53,7 +53,10 @@ strings methods.... ver ej 12
 	- split(), replace(), strip(), swapcase(), capitalize(), casefold(),center(),count(),encode(),find(),format(), index(), isalnum(), 
 	isalph(), islower(), isupper(), isnumeric(), upper(), lower()
 
-pag 8 ... ejerc Clases - interactivo para filtrar datos
+	- string to list: split()
+	- list to string: join()
+
+pag 8 ... ejerc with Class - interactivo para filtrar datos
 
 ============================
 
