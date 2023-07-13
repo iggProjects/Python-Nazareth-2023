@@ -68,6 +68,8 @@ pandas
 
 sqlite
 
+mail jo.gainzarain@aulanz.net nz2223Nz 
+
 oracle
 	https://livesql.oracle.com/apex/f?p=590:1000
 	user jo.gainzarain@aulanz.net 
